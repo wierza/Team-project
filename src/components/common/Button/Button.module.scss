@@ -33,9 +33,13 @@
   color: #2a2a2a;
   font-size: 13px;
   line-height: 22px;
+  margin: 0 5px;
 
   &:not(.noHover):hover {
     background-color: #2a2a2a;
     color: #ffffff;
   }
+
+
 }
+
