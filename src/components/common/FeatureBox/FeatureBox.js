@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -12,7 +13,9 @@ const FeatureBox = ({ active, icon, children }) => (
         <FontAwesomeIcon className={styles.icon} icon={icon} />
       </div>
     )}
-    <div className={styles.content}>{children}</div>
+    <Link to={'#'} className={styles.content}>
+      {children}
+    </Link>
   </div>
 );
 
