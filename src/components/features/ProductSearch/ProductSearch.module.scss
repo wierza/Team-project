@@ -1,5 +1,4 @@
 @import "../../../styles/settings.scss";
-
 .root {
   border: 1px solid $form-border-color;
   display: inline-flex;
@@ -8,9 +7,24 @@
 
   .category {
     border-right: 1px solid $form-border-color;
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
+
+    &:hover {
+      background-color: $primary;
+
+      button {
+        color: white;
+      }
+
+      .icon:first-child {
+        color: white;
+      }
+      .icon:last-child {
+        color: white;
+      }
+    }
 
     .icon:first-child {
       color: $primary;
@@ -25,14 +39,51 @@
       z-index: 0;
     }
 
-    select {
-      -webkit-appearance: none;
-      border: 0;
+    button {
       background-color: transparent;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      margin: 0 24px;
+      outline: none;
     }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary;
+
+        .listElement {
+          color: white;
+        }
+      }
+    }
+    .listElement {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+
+  .category:hover ul {
+    display: block;
   }
 
   .searchField {
