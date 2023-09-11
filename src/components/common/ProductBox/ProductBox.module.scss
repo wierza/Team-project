@@ -36,9 +36,20 @@
     }
 
     .buttons {
+      visibility: hidden;
       display: flex;
       justify-content: space-between;
       margin: 10px;
+    }
+  }
+
+  &:hover {
+    .buttons {
+      visibility: visible;
+    }
+
+    .btnprice {
+      background-color: $primary;
     }
   }
 
