@@ -5,7 +5,7 @@
     margin-bottom: 30px;
     position: relative;
 
-    :global(.row) > * {
+    :global(.row)>* {
       border-bottom: 4px solid #e2e2e2;
     }
 
@@ -33,17 +33,20 @@
 
     .menu {
       text-align: center;
+      scroll-snap-align: start;
+
       ul {
         margin: 0;
         padding: 0;
         list-style: none;
+
         li {
           display: inline-block;
           margin: 0 0.5rem;
           font-weight: 600;
 
           a {
-            color: rgb(42, 42, 42);
+            color: $text-color;
             position: relative;
             text-decoration: none;
             font-size: 18px;

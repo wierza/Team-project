@@ -1,0 +1,16 @@
+@import "../../../styles/settings.scss";
+
+.swipeable {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .swipButton {
+        margin: 15px;
+        padding: 15px;
+        background: linear-gradient(45deg, $header-bg, $primary);
+        border: none;
+        font-size: 24px;
+        border-radius: 40px;
+    }
+}
