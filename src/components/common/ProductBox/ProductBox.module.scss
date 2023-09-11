@@ -8,12 +8,14 @@
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
+
     background: {
       color: $productBox-bg-photo;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
+
     overflow: hidden;
     align-items: flex-end;
 
@@ -29,8 +31,19 @@
     }
 
     .buttons {
+      visibility: hidden;
       display: flex;
       justify-content: space-between;
+    }
+  }
+
+  &:hover {
+    .buttons {
+      visibility: visible;
+    }
+
+    .btnprice {
+      background-color: $primary;
     }
   }
 
