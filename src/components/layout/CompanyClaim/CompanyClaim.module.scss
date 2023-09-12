@@ -67,3 +67,37 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .companyContainer{
+    position: relative;
+
+    .logo{
+      width: auto;
+      position: absolute;
+      left: 0%;
+      bottom: 50%;
+      transform: translate(0, 50%);
+    }
+
+    .cart{
+      width: auto;
+      position: absolute;
+      right: 0%;
+      top: 10%;
+      transform: translate(0, 0);
+    }
+
+    .phoneNumber{
+      width: auto;
+      position: absolute;
+      right: 0%;
+      bottom: 10%;
+      transform: translate(0, 0);
+
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+}

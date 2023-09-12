@@ -40,3 +40,10 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+
+  .topMenu span{
+    display: none;
+  }
+}
