@@ -18,6 +18,7 @@
         list-style: none;
         li {
           a {
+            @extend %transitionHover;
             font-size: 14px;
             line-height: 30px;
             color: $footer-text;
@@ -68,6 +69,7 @@
           margin-left: 1rem;
 
           a {
+            @extend %transitionHover;
             color: $footer-text;
             text-decoration: none;
 

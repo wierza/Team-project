@@ -36,6 +36,8 @@
     }
 
     .buttons {
+      @extend %transitionHover;
+      background-color: $featureBox-bg;
       visibility: hidden;
       display: flex;
       justify-content: space-between;
