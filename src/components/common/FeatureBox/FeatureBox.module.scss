@@ -4,6 +4,7 @@
   border: 1px solid $featureBox-border;
   text-align: center;
   margin-top: 40px;
+  cursor: pointer;
 
   .iconWrapper {
     height: 60px;
@@ -51,6 +52,7 @@
     margin-top: -0.5rem;
     letter-spacing: 1px;
     font-weight: 300;
+    text-decoration: none;
 
     h5 {
       font-weight: 600;
@@ -61,7 +63,7 @@
     }
   }
 
-  &.active {
+  &:hover {
     .iconWrapper {
       color: $text-color-light;
 
