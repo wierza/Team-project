@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,10 +10,11 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ name, price, promo, stars, favorite, compare }) => (
+const ProductBox = ({ name, price, promo, stars, image, favorite, compare }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
+      <img className={styles.image} src={image} alt={name} />
       <div className={styles.buttons}>
         <Button variant='small'>Quick View</Button>
         <Button variant='small'>
@@ -47,7 +47,7 @@ const ProductBox = ({ name, price, promo, stars, favorite, compare }) => (
         </Button>
       </div>
       <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button className={styles.btnprice} noHover variant='small'>
           $ {price}
         </Button>
       </div>
@@ -61,6 +61,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  image: PropTypes.string,
   favorite: PropTypes.bool.isRequired,
   compare: PropTypes.bool.isRequired,
 };
