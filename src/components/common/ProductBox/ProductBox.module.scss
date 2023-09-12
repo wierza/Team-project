@@ -7,7 +7,6 @@
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
 
     background: {
       color: $productBox-bg-photo;
@@ -18,6 +17,12 @@
 
     overflow: hidden;
     align-items: flex-end;
+
+    .image {
+      object-fit: cover;
+      width: 100%;
+      height: 200px;
+    }
 
     .sale {
       position: absolute;
@@ -34,6 +39,7 @@
       visibility: hidden;
       display: flex;
       justify-content: space-between;
+      margin: 10px;
     }
   }
 
