@@ -36,6 +36,7 @@
     }
 
     .buttons {
+      @extend %transitionHover;
       visibility: hidden;
       display: flex;
       justify-content: space-between;
