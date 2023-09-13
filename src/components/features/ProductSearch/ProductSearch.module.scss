@@ -1,12 +1,14 @@
 @import "../../../styles/settings.scss";
+
 .root {
-  border: 1px solid $form-border-color;
+  border: 1px solid $productSearchForm-border-color;
   display: inline-flex;
   height: 45px;
   color: $text-color;
 
   .category {
-    border-right: 1px solid $form-border-color;
+
+    border-right: 1px solid $productSearchForm-border-color;
     position: relative;
     display: flex;
     align-items: center;
@@ -15,20 +17,20 @@
       background-color: $primary;
 
       button {
-        color: #ffffff;
+        color: $productBox-bg;
       }
 
       .icon:first-child {
-        color: #ffffff;
+        color: $productBox-bg;
       }
 
       .icon:last-child {
-        color: #ffffff;
+        color: $productBox-bg;
       }
     }
 
     .icon:first-child {
-      color: $primary;
+      color: $text-color-primary;
       position: absolute;
       left: 10px;
       z-index: 0;
@@ -57,8 +59,8 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #ffff;
-      border: 1px solid #ccc;
+      background-color: $productBox-bg;
+      border: 1px solid $productSearchForm-border-color;
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -72,7 +74,7 @@
         background-color: $primary;
 
         .listElement {
-          color: #ffffff;
+          color: $productBox-bg;
         }
       }
     }
@@ -106,7 +108,7 @@
 
     button {
       border: 0;
-      background-color: transparent;
+      background-color: $productSearchForm-button-bg;
       outline: none;
     }
   }
