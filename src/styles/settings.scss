@@ -1,13 +1,59 @@
 $base-padding: 24px;
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+// ---------- COLOR VARIABLES, USE ONLY IN SETTINGS!!!!! ---------- //
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$white: #ffffff;
+$white-2: #e1e1e1;
+$white-3: #e2e2e2;
+$lightGray: #b6b6b6;
+$lightGray2: #d8d8d8;
+$lightGray3: #e0e3ed;
+$lightGray4: #a9a9a9;
+$darkGray: #2a2a2a;
+$orange: #d58e32;
+$brown: #363636;
+$brown2: #292929;
+$lightBrown: #434343;
+$shadow: rgba(1, 2, 2, 0.2);
+$transparent: transparent;
 
-$primary: #d58e32;
 
-$text-color: #2a2a2a;
+// ---------- PROJECT COLOR VARIABLES, USE IN PROJECT ---------- //
 
-$form-border-color: #292929;
+
+$primary: $orange;
+
+$text-color: $darkGray;
+$text-color-light: $white;
+$text-color-primary: $primary;
+
+$header-topbar-bg: $lightBrown;
+
+$footer-claim-bg: $darkGray;
+$footer-bg: $brown;
+$footer-text: $lightGray4;
+
+$button-bg: $darkGray;
+
+$featureBox-border: $lightGray;
+$featureBox-bg: $white;
+
+$productBox-bg: $white;
+$productBox-bg-sale: $brown2;
+$productBox-bg-photo: $white-3;
+$productBox-border: $white-2;
+
+$newFurniture-bg: $white;
+$newFurniture-border: $white-3;
+$newFurniture-bg2: $white-2;
+
+$productSearchForm-border-color: $brown2;
+$productSearchForm-button-bg: $transparent;
+$productSearchForm-select-bg: $transparent;
+
+$companyClaimHeader-bg: $brown;
+$companyClaim-phone-text: $lightGray2;
+$companyClaim-cart-counter: $lightGray3;
+
+$menuBar-box-shadow: $shadow;
+$menuBar-bg: $white;
