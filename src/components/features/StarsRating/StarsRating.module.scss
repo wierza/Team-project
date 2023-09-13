@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
-.filled {
+.userColor {
   color: $primary;
 }
-.empty {
-  color: $transparent;
+.defaultColor {
+  color: $black;
 }

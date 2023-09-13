@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUserStars } from '../../../redux/productsRedux';
 
 import styles from './StarsRating.module.scss';
 
@@ -8,100 +10,54 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
-const StarsRating = ({ stars, userStars }) => {
-  const [isUserRating, setIsUserRating] = useState(true);
-  const [userRating, setUserRating] = useState(0);
+const StarsRating = ({ stars, userStars, id }) => {
+  const dispatch = useDispatch();
   const [hoverStars, setHoverStars] = useState(null);
 
-  const handleClick = rateValue => {
-    setUserRating(rateValue);
-    setIsUserRating(true);
+  const handleClick = (value, id) => {
+    dispatch(setUserStars({ value, id }));
   };
 
   const handleMouseOver = index => {
-    // setIsUserRating(true);
     setHoverStars(index);
   };
   const handleOnMouseLeave = () => {
-    // setIsUserRating(false);
     setHoverStars(null);
   };
 
-  const colors = {
-    orange: 'red',
-    empty: 'black',
-  };
-
-  function getColorAndIcon(starIndex) {
-    /* hover - fa && orange */
+  function getClassNameAndIcon(starIndex) {
+    /* on hover - fa icon && orange color */
     if (hoverStars) {
-      if (hoverStars >= starIndex) return ['orange', faStar];
-      else return ['black', farStar];
+      if (hoverStars >= starIndex) return [faStar, styles.userColor];
+      else return [farStar, styles.defaultColor];
     }
-    /* default - far && black */
-    if (userStars === 0 && stars < starIndex) return ['black', farStar];
-    /* globalChecked - fa && black */
-    if (userStars === 0 && stars > 0) return ['black', faStar];
-    /* myChecked - fa && orange */
+    /* default - far icon && black color */
+    if (userStars === 0 && stars < starIndex) return [farStar, styles.defaultColor];
+    /* default checked stars - fa icon && black color*/
+    if (userStars === 0 && stars > 0) return [faStar, styles.defaultColor];
+    /* checked by user - fa icon && orange color */
     if (userStars > 0) {
-      if (starIndex <= userStars) return ['orange', faStar];
-      else return ['black', farStar];
+      if (starIndex <= userStars) return [faStar, styles.userColor];
+      else return [farStar, styles.defaultColor];
     }
-    return ['black', farStar];
+    return [farStar, styles.defaultColor];
   }
 
   return (
     <div>
-      {isUserRating && (
-        <div>
-          {/* default - far && black */}
-          {/* globalChecked - fa && black */}
-          {/* myChecked - fa && orange */}
-          {/* hover - fa && orange */}
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              <FontAwesomeIcon
-                icon={getColorAndIcon(i)[1]}
-                onClick={() => handleClick(i)}
-                onMouseOver={() => handleMouseOver(i)}
-                onMouseLeave={() => handleOnMouseLeave()}
-                color={getColorAndIcon(i)[0]}
-              >
-                {i} stars
-              </FontAwesomeIcon>
-            </a>
-          ))}
-        </div>
-      )}
-      {!isUserRating && (
-        <div>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon
-                  icon={faStar}
-                  onClick={() => handleClick(i)}
-                  onMouseOver={() => handleMouseOver(i)}
-                  onMouseLeave={() => handleOnMouseLeave()}
-                  color={(hoverStars || userRating) >= i ? colors.orange : colors.empty}
-                >
-                  {i} stars
-                </FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon
-                  icon={hoverStars >= i ? faStar : farStar}
-                  onClick={() => handleClick(i)}
-                  onMouseOver={() => handleMouseOver(i)}
-                  onMouseLeave={() => handleOnMouseLeave()}
-                  color={(hoverStars || userRating) >= i ? colors.orange : colors.empty}
-                >
-                  {i} stars
-                </FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
-      )}
+      {[1, 2, 3, 4, 5].map(i => (
+        <a key={i} href='#'>
+          <FontAwesomeIcon
+            icon={getClassNameAndIcon(i)[1]}
+            onClick={() => handleClick(i, id)}
+            onMouseOver={() => handleMouseOver(i)}
+            onMouseLeave={() => handleOnMouseLeave()}
+            className={getClassNameAndIcon(i)[2]}
+          >
+            {i} stars
+          </FontAwesomeIcon>
+        </a>
+      ))}
     </div>
   );
 };
@@ -109,6 +65,7 @@ const StarsRating = ({ stars, userStars }) => {
 StarsRating.propTypes = {
   stars: PropTypes.number,
   userStars: PropTypes.number,
+  id: PropTypes.string,
 };
 
 export default StarsRating;
