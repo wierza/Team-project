@@ -96,7 +96,11 @@
     align-items: center;
   }
 
-  .oldPrice{
+  .favourite {
+    background-color: $primary;
+  }
+
+  .oldPrice {
     color: $text-color-old-price;
     text-decoration: line-through;
   }
