@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUserStars } from '../../../redux/productsRedux';
@@ -48,11 +49,11 @@ const StarsRating = ({ stars, userStars, id }) => {
       {[1, 2, 3, 4, 5].map(i => (
         <a key={i} href='#'>
           <FontAwesomeIcon
-            icon={getClassNameAndIcon(i)[1]}
+            icon={getClassNameAndIcon(i)[0]}
             onClick={() => handleClick(i, id)}
             onMouseOver={() => handleMouseOver(i)}
             onMouseLeave={() => handleOnMouseLeave()}
-            className={getClassNameAndIcon(i)[2]}
+            className={getClassNameAndIcon(i)[1]}
           >
             {i} stars
           </FontAwesomeIcon>
