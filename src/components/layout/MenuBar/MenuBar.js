@@ -11,9 +11,9 @@ const MenuBar = ({ children }) => {
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
   return (
-    <div className={styles.root}>
+    <div className={`position-relative p-0 p-sm-1 ${styles.root}`}>
       <div className='container'>
-        <div className='align-items-center d-flex flex-row flex-md-column-reverse flex-xl-row'>
+        <div className='align-items-center d-flex flex-row flex-md-column-reverse flex-xl-row '>
           <div className='col'>
             <ProductSearch />
           </div>
