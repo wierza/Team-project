@@ -13,6 +13,7 @@
       line-height: 55px;
 
       a {
+        @extend %transitionHover;
         color: $text-color-light;
         font-size: 13px;
 

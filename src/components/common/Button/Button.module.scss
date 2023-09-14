@@ -4,6 +4,8 @@
 // }
 
 .main {
+  @extend %buttonHover;
+  @extend %transitionHover;
   background-color: $button-bg;
   color: $text-color-light;
   font-size: 16px;
@@ -27,6 +29,8 @@
 }
 
 .outline {
+  @extend %buttonHover;
+  @extend %transitionHover;
   display: inline-block;
   padding: 5px 10px;
   border: 1px solid $button-bg;
@@ -39,7 +43,4 @@
     background-color: $button-bg;
     color: $text-color-light;
   }
-
-
 }
-
