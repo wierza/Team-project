@@ -11,6 +11,7 @@
   .menu {
     display: flex;
     align-self: stretch;
+    padding: 1rem;
 
     ul {
       margin: 0;
@@ -48,5 +49,9 @@
         border-color: $text-color;
       }
     }
+  }
+
+  .open {
+    display: block;
   }
 }
