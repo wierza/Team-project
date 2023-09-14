@@ -58,3 +58,14 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .root {
+    display: flex;
+    flex-direction: column;
+    .searchField,
+    .category {
+      border: 1px solid $productSearchForm-border-color;
+    }
+  }
+}

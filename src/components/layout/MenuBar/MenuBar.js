@@ -24,9 +24,9 @@ const MenuBar = ({ children }) => {
             ></FontAwesomeIcon>
           </button>
           <div
-            className={`${isHamburgerClicked ? styles.open : ''} col-auto d-md-block  ${
-              styles.menu
-            } `}
+            className={`col-auto d-none d-md-block ${styles.menu} ${
+              isHamburgerClicked ? 'd-block' : 'd-none'
+            }`}
           >
             <ul className='d-flex flex-column flex-md-row'>
               <li>
