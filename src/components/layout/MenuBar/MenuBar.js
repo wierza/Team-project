@@ -17,12 +17,13 @@ const MenuBar = ({ children }) => {
           <div className='col'>
             <ProductSearch />
           </div>
-          <button className='d-block d-md-none' type='button'>
+          <div className={`d-block d-md-none ${styles.mobile}`} type='button'>
             <FontAwesomeIcon
+              className={styles.icon}
               icon={isHamburgerClicked ? faTimes : faBars}
               onClick={() => setIsHamburgerClicked(!isHamburgerClicked)}
             ></FontAwesomeIcon>
-          </button>
+          </div>
           <div
             className={`col-auto d-none d-md-block ${styles.menu} ${
               isHamburgerClicked ? 'd-block' : 'd-none'

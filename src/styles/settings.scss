@@ -17,9 +17,7 @@ $lightBrown: #434343;
 $shadow: rgba(1, 2, 2, 0.2);
 $transparent: transparent;
 
-
 // ---------- PROJECT COLOR VARIABLES, USE IN PROJECT ---------- //
-
 
 $primary: $orange;
 
@@ -58,6 +56,7 @@ $companyClaim-cart-counter: $lightGray3;
 
 $menuBar-box-shadow: $shadow;
 $menuBar-bg: $white;
+$mobile-menu-bg: $lightGray2;
 
 // ---------- Animations for hover ---------- //
 $transitionTime-bg: 250ms;
@@ -73,24 +72,22 @@ $transitionShiftUpCart: 0px;
 $transitionScaleCart: scale(1);
 
 %transitionHover {
-  transition: background-color $transitionTime-bg,
-              color $transitionTime-text,
-              border-color $transitionTime-bg,
-              margin-bottom $transitionTime-shift,
-              transform $transitionTime-scale;
+  transition: background-color $transitionTime-bg, color $transitionTime-text,
+    border-color $transitionTime-bg, margin-bottom $transitionTime-shift,
+    transform $transitionTime-scale;
   transition-timing-function: $transitionTimingFunction;
 }
 
 %buttonHover {
- &:hover {
-  margin-bottom: $transitionShiftUpButton;
-  transform: $transitionScaleButton;
- }
+  &:hover {
+    margin-bottom: $transitionShiftUpButton;
+    transform: $transitionScaleButton;
+  }
 }
 
 %cartHover {
   &:hover {
-   margin-bottom: $transitionShiftUpCart;
-   transform: $transitionScaleCart;
+    margin-bottom: $transitionShiftUpCart;
+    transform: $transitionScaleCart;
   }
- }
+}

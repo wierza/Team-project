@@ -51,7 +51,23 @@
     }
   }
 
-  .open {
-    display: block;
+  .mobile {
+    .icon {
+      font-size: 2rem;
+      color: $primary;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    z-index: 100;
+    right: 0;
+
+    a {
+      width: 200px;
+      background-color: $mobile-menu-bg;
+    }
   }
 }
