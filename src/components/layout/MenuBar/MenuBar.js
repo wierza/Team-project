@@ -14,20 +14,21 @@ const MenuBar = ({ children }) => {
     <div className={styles.root}>
       <div className='container'>
         <div className='align-items-center d-flex flex-row flex-md-column-reverse flex-xl-row'>
-          <div className='d-block d-md-none'>
+          <div className='col'>
+            <ProductSearch />
+          </div>
+          <button className='d-block d-md-none' type='button'>
             <FontAwesomeIcon
               icon={isHamburgerClicked ? faTimes : faBars}
               onClick={() => setIsHamburgerClicked(!isHamburgerClicked)}
             ></FontAwesomeIcon>
-          </div>
-
-          <div className='col'>
-            <ProductSearch />
-          </div>
+          </button>
           <div
-            className={`col-auto d-none d-md-block ${styles.menu} {${isHamburgerClicked} ? ${styles.open}:"}`}
+            className={`${isHamburgerClicked ? styles.open : ''} col-auto d-md-block  ${
+              styles.menu
+            } `}
           >
-            <ul>
+            <ul className='d-flex flex-column flex-md-row'>
               <li>
                 <a href='#' className={styles.active}>
                   Home
