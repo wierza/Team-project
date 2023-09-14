@@ -36,6 +36,7 @@
     }
 
     .buttons {
+      @extend %transitionHover;
       visibility: hidden;
       display: flex;
       justify-content: space-between;
@@ -93,5 +94,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+  .oldPrice{
+    color: $text-color-old-price;
+    text-decoration: line-through;
   }
 }

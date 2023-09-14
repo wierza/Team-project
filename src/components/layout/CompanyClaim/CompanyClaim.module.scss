@@ -30,8 +30,10 @@
       display: inline-block;
       position: relative;
       color: $text-color-light;
+      @extend %cartHover;
 
       .cartIcon {
+        @extend %transitionHover;
         background-color: $primary;
         width: 55px;
         height: 50px;
