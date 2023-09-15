@@ -39,7 +39,7 @@
       right: 10px;
       z-index: 0;
     }
-    
+
     button {
       background-color: transparent;
       border: none;
@@ -81,14 +81,6 @@
       color: $text-color;
       text-decoration: none;
       font-size: 14px;
-
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: $productSearchForm-select-bg;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
     }
   }
 
@@ -119,6 +111,7 @@
     }
   }
 }
+
 
 @media (max-width: 768px) {
   .root {
