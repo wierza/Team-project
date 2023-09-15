@@ -10,6 +10,7 @@
     border-right: 1px solid $productSearchForm-border-color;
     display: flex;
     align-items: center;
+    @extend %transitionHover;
 
     &:hover {
       background-color: $primary;
