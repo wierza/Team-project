@@ -13,7 +13,9 @@ const MenuBar = ({ children }) => {
   return (
     <div className={`position-relative p-0 p-sm-1 ${styles.root}`}>
       <div className='container'>
-        <div className='align-items-center d-flex flex-row flex-md-column-reverse flex-xl-row '>
+        <div
+          className={`align-items-center d-flex flex-row flex-md-column-reverse flex-xl-row ${styles.test}`}
+        >
           <div className='col'>
             <ProductSearch />
           </div>

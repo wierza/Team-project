@@ -59,7 +59,20 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .menu {
+    position: absolute;
+    z-index: 100;
+    top: calc(72px + 1rem);
+    right: 0;
+
+    a {
+      width: 200px;
+      background-color: $mobile-menu-bg;
+    }
+  }
+}
+@media (max-width: 767px) {
   .menu {
     position: absolute;
     z-index: 100;
