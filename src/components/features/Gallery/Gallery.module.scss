@@ -1,0 +1,101 @@
+@import "../../../styles/settings.scss";
+
+.root {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.heading {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        margin: 0;
+        color: $primary;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 38px;
+        letter-spacing: 1px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 45px;
+        border-bottom: 4px solid $primary;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 45px;
+        width: calc(100% - 45px);
+        border-bottom: 4px solid $gallery-border;
+    }
+}
+
+.rightPhoto {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 604px;
+    background-position: center;
+    background-size: cover;
+}
+
+.photoInfo {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    padding: 50px;
+
+    span {
+        color: $gallery-bg;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-shadow: none;
+    }
+
+    h1:first-of-type {
+        color: $gallery-button;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px $gallery-text-main;
+    }
+
+    h1:nth-of-type(2) {
+        color: $primary;
+        font-weight: 600;
+        text-shadow: 2px 2px 2px $gallery-text-main;
+    }
+
+    button {
+        display: block;
+        margin: 10px auto;
+        height: 55px;
+        width: 135px;
+        background-color: $gallery-button;
+        border: none;
+        border-radius: 5%;
+        color: $gallery-bg;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $gallery-color;
+        text-shadow: 2px 2px 2px $gallery-text-main;
+
+        &:hover {
+            background-color: $primary;
+        }
+    }
+}
