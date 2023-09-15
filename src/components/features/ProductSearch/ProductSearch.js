@@ -8,7 +8,10 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 import styles from './ProductSearch.module.scss';
 
 const ProductSearch = () => (
-  <form action='' className={styles.root}>
+  <form
+    action=''
+    className={`d-flex-column d-md-inline-flex m-2 border-dark   ${styles.root}`}
+  >
     <div className={styles.category}>
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
       <button className={styles.categoryButton}>Select a category</button>
