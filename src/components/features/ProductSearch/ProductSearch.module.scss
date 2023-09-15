@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    @extend %transitionHover;
 
     &:hover {
       background-color: $primary;
