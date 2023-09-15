@@ -10,8 +10,8 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 const Promoted = () => {
   const products = useSelector(getAll);
 
-  const product1 = products[4];
-  const product2 = products[6];
+  const product1 = products[5];
+  const product2 = products[0];
 
   const warunekDlaActivwKropkach = 1 === 0;
 
