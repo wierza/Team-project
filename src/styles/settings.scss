@@ -9,7 +9,9 @@ $lightGray: #b6b6b6;
 $lightGray2: #d8d8d8;
 $lightGray3: #e0e3ed;
 $lightGray4: #a9a9a9;
+$midGray: #3e3e3e;
 $darkGray: #2a2a2a;
+$darkGray-transparent: rgba(42, 42, 42, 0.5);
 $orange: #d58e32;
 $brown: #363636;
 $brown2: #292929;
@@ -43,6 +45,11 @@ $productBox-bg: $white;
 $productBox-bg-sale: $brown2;
 $productBox-bg-photo: $white-3;
 $productBox-border: $white-2;
+
+$promoted-counter-bg: $midGray;
+$promoted-topBar-bg: $darkGray;
+$promoted-furniture-bg: $darkGray-transparent;
+$promoted-furniture-button-bg: $white;
 
 $newFurniture-bg: $white;
 $newFurniture-border: $white-3;
