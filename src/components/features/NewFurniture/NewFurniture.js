@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
+import Swipeable from '../../common/Swipeable/Swipeable';
 
 class NewFurniture extends React.Component {
   state = {
@@ -18,6 +19,47 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
+  getCurrentPageCountLength = () => {
+    let length =
+      this.props.products.filter(item => item.category === this.state.activeCategory)
+        .length / 8;
+    return length;
+  };
+
+  leftAction = () => {
+    const { activePage, activeCategory } = this.state;
+    if (activePage > 0) {
+      this.setState({ activePage: activePage - 1 });
+    } else {
+      const categories = this.props.categories;
+      const activeCategoryIndex = categories.findIndex(
+        cat => cat.id === activeCategory
+      );
+      if (activeCategoryIndex > 0) {
+        const newCategory = categories[activeCategoryIndex - 1].id;
+        const categoryProducts = this.props.products.filter(
+          item => item.category === newCategory
+        );
+        const newActivePage = Math.floor(categoryProducts.length / 8);
+        this.setState({ activeCategory: newCategory, activePage: newActivePage });
+      }
+    }
+  };
+
+  rightAction = () => {
+    const { activePage, activeCategory } = this.state;
+    const currentPageCount = this.getCurrentPageCountLength();
+    const categories = this.props.categories;
+    const activeCategoryIndex = categories.findIndex(cat => cat.id === activeCategory);
+
+    if (activePage < currentPageCount - 1) {
+      this.setState({ activePage: activePage + 1 });
+    } else if (activeCategoryIndex < categories.length - 1) {
+      const newCategory = categories[activeCategoryIndex + 1].id;
+      this.setState({ activeCategory: newCategory, activePage: 0 });
+    }
+  };
+
   render() {
     const { categories, products } = this.props;
     const { activeCategory, activePage } = this.state;
@@ -28,10 +70,10 @@ class NewFurniture extends React.Component {
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
             page {i}
           </a>
@@ -40,41 +82,45 @@ class NewFurniture extends React.Component {
     }
 
     return (
-      <div className={styles.root}>
-        <div className='container'>
-          <div className={styles.panelBar}>
-            <div className='row no-gutters align-items-end'>
-              <div className={'col-auto ' + styles.heading}>
-                <h3>New furniture</h3>
-              </div>
-              <div className={'col ' + styles.menu}>
-                <ul>
-                  {categories.map(item => (
-                    <li key={item.id}>
-                      <a
-                        className={item.id === activeCategory && styles.active}
-                        onClick={() => this.handleCategoryChange(item.id)}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
+      <Swipeable leftAction={this.leftAction} rightAction={this.rightAction}>
+        <div className={styles.root}>
+          <div className='container'>
+            <div className={styles.panelBar}>
+              <div className='row no-gutters align-items-end'>
+                <div className={'col-auto ' + styles.heading}>
+                  <h3>New furniture</h3>
+                </div>
+                <div className={'col ' + styles.menu}>
+                  <ul>
+                    {categories.map(item => (
+                      <li key={item.name}>
+                        <a
+                          className={item.id === activeCategory ? styles.active : ''}
+                          onClick={() => this.handleCategoryChange(item.id)}
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={'col-auto ' + styles.dots}>
+                  <ul>{dots}</ul>
+                </div>
               </div>
             </div>
-          </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-3'>
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Swipeable>
     );
   }
 }
