@@ -24,7 +24,6 @@
         &.active {
             background-color: $gallery-border;
             color: $primary;
-            text-shadow: 1px 1px 1px $gallery-text-main;
         }
     }
 }
@@ -71,7 +70,6 @@
         h4 {
             display: inline-block;
             vertical-align: middle;
-            color: $primary;
         }
 
         .nameBadge {
