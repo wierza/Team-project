@@ -10,16 +10,26 @@ const Sale = () => {
 
   return (
     <div className={styles.root}>
-      <div className='container'>
-        <div>Test</div>
-        <img
-          src={products[randomProductIndex].image}
-          alt={products[randomProductIndex].name}
-        />
-
-        <div>
-          <div>Test2</div>
-          <div>Test 3</div>
+      <div className={`container ${styles.mainContainer}`}>
+        <div className={styles.leftSection}>
+          {/* <img
+            src={products[randomProductIndex].image}
+            alt={products[randomProductIndex].name}
+          /> */}
+        </div>
+        <div className={styles.rightSection}>
+          <div className={styles.rightUpPicture}>
+            {/* <img
+              src={products[randomProductIndex].image}
+              alt={products[randomProductIndex].name}
+            /> */}
+          </div>
+          <div className={styles.rightDownPicture}>
+            {/* <img
+              src={products[randomProductIndex].image}
+              alt={products[randomProductIndex].name}
+            /> */}
+          </div>
         </div>
       </div>
     </div>

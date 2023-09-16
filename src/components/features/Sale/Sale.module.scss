@@ -1,1 +1,37 @@
 @import "../../../styles/settings.scss";
+
+.root {
+  .mainContainer {
+    display: flex;
+    flex-direction: row;
+    // border: 2px solid blue;
+    padding-bottom: 5rem;
+
+    .leftSection {
+      height: 320px;
+      width: 50%;
+      object-fit: cover;
+      border: 2px solid green;
+      margin-right: 2rem;
+    }
+
+    .rightSection {
+      width: 50%;
+      height: 320px;
+      //   border: 2px solid red;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .rightUpPicture {
+        border: 2px solid rgb(141, 83, 121);
+        height: 150px;
+      }
+
+      .rightDownPicture {
+        border: 2px solid gold;
+        height: 150px;
+      }
+    }
+  }
+}
