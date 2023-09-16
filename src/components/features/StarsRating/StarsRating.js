@@ -47,7 +47,7 @@ const StarsRating = ({ stars, userStars, id }) => {
   return (
     <div>
       {[1, 2, 3, 4, 5].map(i => (
-        <a key={i} href='#'>
+        <span key={i}>
           <FontAwesomeIcon
             icon={getClassNameAndIcon(i)[0]}
             onClick={() => handleClick(i, id)}
@@ -57,7 +57,7 @@ const StarsRating = ({ stars, userStars, id }) => {
           >
             {i} stars
           </FontAwesomeIcon>
-        </a>
+        </span>
       ))}
     </div>
   );
