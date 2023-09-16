@@ -27,16 +27,16 @@ const StarsRating = ({ stars, userStars, id }) => {
   };
 
   function getClassNameAndIcon(starIndex) {
-    /* on hover - fa icon && orange color */
+    /* on hover - full star && orange color */
     if (hoverStars) {
       if (hoverStars >= starIndex) return [faStar, styles.userColor];
       else return [farStar, styles.defaultColor];
     }
-    /* default - far icon && black color */
+    /* default - empty star && black color */
     if (userStars === 0 && stars < starIndex) return [farStar, styles.defaultColor];
-    /* default checked stars - fa icon && black color*/
+    /* default checked stars - full star && black color*/
     if (userStars === 0 && stars > 0) return [faStar, styles.defaultColor];
-    /* checked by user - fa icon && orange color */
+    /* checked by user - full star && orange color */
     if (userStars > 0) {
       if (starIndex <= userStars) return [faStar, styles.userColor];
       else return [farStar, styles.defaultColor];
