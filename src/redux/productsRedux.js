@@ -18,7 +18,7 @@ export default function reducer(statePart = [], action = {}) {
     case TOGGLE_FAV:
       return statePart.map(product =>
         product.id === action.payload
-          ? { ...product, isFavourite: !product.isFavourite }
+          ? { ...product, favorite: !product.favorite }
           : product
       );
     default:
