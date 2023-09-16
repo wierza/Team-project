@@ -20,6 +20,13 @@ const Sale = () => {
         <div className={styles.rightSection}>
           <div className={styles.rightUpPicture}>
             <img src={'./images/promo/officeChair1.jpg'} alt={'office chairs'} />
+            <div className={styles.text}>
+              <p className={styles.officeChair}>
+                <b>Office</b> Chair
+              </p>
+              <p className={styles.collection}>Collection</p>
+              <p className={styles.save}>$200.00 </p>
+            </div>
           </div>
           <div className={styles.rightDownPicture}>
             <img src={'./images/promo/bedPromo.jpg'} alt={'bed'} />

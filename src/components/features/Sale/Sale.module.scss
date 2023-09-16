@@ -6,6 +6,9 @@
     flex-direction: row;
     padding-bottom: 5rem;
 
+    p {
+      text-transform: uppercase;
+    }
     .leftSection {
       height: 420px;
       width: 50%;
@@ -35,7 +38,6 @@
         position: absolute;
         color: $text-color-light;
         z-index: 5;
-        text-transform: uppercase;
         font-weight: 600;
       }
       .category {
@@ -78,7 +80,6 @@
         position: relative;
         .save {
           position: absolute;
-          text-transform: uppercase;
           top: 60%;
           right: 5%;
         }
@@ -87,6 +88,25 @@
           right: 5%;
           top: 50%;
           color: $text-color-light;
+        }
+      }
+      .rightUpPicture {
+        position: relative;
+        .text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 1rem;
+          .save {
+            color: $primary;
+          }
+          .collection {
+            font-size: 0.8rem;
+            line-height: 0.5rem;
+          }
         }
       }
     }
