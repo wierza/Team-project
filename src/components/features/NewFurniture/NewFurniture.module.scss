@@ -53,18 +53,18 @@
             display: block;
 
             &::before {
-              @extend %transitionHover;
               content: "";
               position: absolute;
               bottom: -4px;
               left: 0;
               width: 100%;
               border-bottom: 4px solid $newFurniture-border;
+              @extend %transitionHover;
             }
-            
+
             &.active,
             &:hover {
-              &::before{
+              &::before {
                 border-bottom: 4px solid $primary;
               }
             }
@@ -97,6 +97,7 @@
             background-color: $newFurniture-bg2;
             font-size: 0;
             @extend %transitionHover;
+
             &.active,
             &:hover {
               background-color: $primary;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Swipeable.module.scss';
 import Button from '../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useSwipeable } from 'react-swipeable';
 
 const Swipeable = ({ children, leftAction, rightAction }) => {
@@ -63,7 +63,7 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
   return (
     <div className={styles.swipeable}>
       <Button variant='outline' onClick={leftAction} className={styles.swipeButton}>
-        <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+        <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
       </Button>
 
       <div
@@ -76,7 +76,7 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
       </div>
 
       <Button variant='outline' onClick={rightAction} className={styles.swipeButton}>
-        <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+        <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
       </Button>
     </div>
   );
