@@ -16,7 +16,6 @@ export const setUserStars = payload => ({ type: SET_USERS_STARS, payload });
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case SET_USERS_STARS:
-      console.log(action.payload);
       return statePart.map(product =>
         product.id === action.payload.id
           ? { ...product, userStars: action.payload.value }
