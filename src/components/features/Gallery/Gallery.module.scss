@@ -93,6 +93,7 @@
         font-weight: 600;
         color: $gallery-color;
         text-shadow: 2px 2px 2px $gallery-text-main;
+        @extend %transitionHover;
 
         &:hover {
             background-color: $primary;

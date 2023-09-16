@@ -7,6 +7,7 @@
 }
 
 .categories {
+    @extend %transitionHover;
     a {
         display: block;
         margin-right: -1px;
@@ -19,7 +20,7 @@
         letter-spacing: 1px;
         text-align: center;
         font-weight: 700;
-
+        
         &:hover,
         &.active {
             background-color: $gallery-border;
@@ -119,6 +120,7 @@
     .stars {
         color: $brown2;
         border-color: $gallery-border;
+        @extend %transitionHover;
 
         &:hover {
             color: $primary;
@@ -136,6 +138,7 @@
         height: 70px;
         width: 70px;
         cursor: pointer;
+        @extend %transitionHover;
 
         background: {
             position: center;
@@ -184,6 +187,7 @@
 .buttons {
     position: absolute;
     top: 25%;
+    @extend %transitionHover;
 
     &>* {
         display: block;
