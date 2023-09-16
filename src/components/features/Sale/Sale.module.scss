@@ -4,33 +4,90 @@
   .mainContainer {
     display: flex;
     flex-direction: row;
-    // border: 2px solid blue;
     padding-bottom: 5rem;
 
     .leftSection {
-      height: 320px;
+      height: 420px;
       width: 50%;
-      object-fit: cover;
-      border: 2px solid green;
       margin-right: 2rem;
+      position: relative;
+      &::after {
+        content: "";
+        background-color: $productBox-bg-sale;
+        opacity: 0.5;
+        height: 90%;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .category,
+      .name,
+      .discount {
+        position: absolute;
+        color: $text-color-light;
+        z-index: 5;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      .category {
+        top: 55%;
+        left: 7%;
+        font-size: 2rem;
+      }
+      .name {
+        top: 50%;
+        left: 7%;
+      }
+      .discount {
+        top: 70%;
+        left: 7%;
+        border: 4px solid $text-color-light;
+        padding: 5px;
+        font-size: 1.5rem;
+      }
     }
 
     .rightSection {
       width: 50%;
-      height: 320px;
-      //   border: 2px solid red;
+      height: 420px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
-      .rightUpPicture {
-        border: 2px solid rgb(141, 83, 121);
-        height: 150px;
-      }
-
+      .rightUpPicture,
       .rightDownPicture {
-        border: 2px solid gold;
-        height: 150px;
+        height: 200px;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+      .rightDownPicture {
+        position: relative;
+        .save {
+          position: absolute;
+          text-transform: uppercase;
+          top: 60%;
+          right: 5%;
+        }
+        .collection {
+          position: absolute;
+          right: 5%;
+          top: 50%;
+          color: $text-color-light;
+        }
       }
     }
   }
