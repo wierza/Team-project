@@ -26,7 +26,8 @@ class NewFurniture extends React.Component {
     return length;
   };
 
-  leftAction = () => {
+  leftAction = e => {
+    e.preventDefault();
     const { activePage, activeCategory } = this.state;
     if (activePage > 0) {
       this.setState({ activePage: activePage - 1 });
@@ -46,7 +47,8 @@ class NewFurniture extends React.Component {
     }
   };
 
-  rightAction = () => {
+  rightAction = e => {
+    e.preventDefault();
     const { activePage, activeCategory } = this.state;
     const currentPageCount = this.getCurrentPageCountLength();
     const categories = this.props.categories;

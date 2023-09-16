@@ -7,18 +7,29 @@
     position: relative;
 
     .swipeButton {
-        margin: 15px;
-        padding: 15px;
-        font-size: 20px;
-        border: none;
-        opacity: 0;
-        @extend %transitionHover;
+        font-size: 14px;
+        margin-bottom: -10px;
 
-        &:hover {
+        .leftButton {
+            margin-left: 10px;
+            border: none;
+            @extend %transitionHover;
+
+        }
+
+        .rightButton {
+            margin-left: 1060px;
+            border: none;
+            @extend %transitionHover;
+
+        }
+
+        .leftButton:hover,
+        .rightButton:hover {
             background-color: transparent;
             color: $primary;
             border: none;
-            opacity: 1;
         }
+
     }
 }

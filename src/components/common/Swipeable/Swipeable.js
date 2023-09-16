@@ -29,7 +29,7 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
     preventScrollOnSwipe: true,
   });
 
-  const onTouchEnd = () => {
+  const onTouchEnd = e => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minDistanceSwipe;
@@ -62,22 +62,26 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
 
   return (
     <div className={styles.swipeable}>
-      <Button variant='outline' onClick={leftAction} className={styles.swipeButton}>
-        <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-      </Button>
-
       <div
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         {...handlers}
       >
+        <div className={styles.swipeButton}>
+          <Button variant='outline' onClick={leftAction} className={styles.leftButton}>
+            <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+          </Button>
+          <Button
+            variant='outline'
+            onClick={rightAction}
+            className={styles.rightButton}
+          >
+            <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+          </Button>
+        </div>
         {children}
       </div>
-
-      <Button variant='outline' onClick={rightAction} className={styles.swipeButton}>
-        <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-      </Button>
     </div>
   );
 };
