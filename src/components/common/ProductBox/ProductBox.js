@@ -7,7 +7,18 @@ import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarsRating from '../../features/StarsRating/StarsRating';
 
-const ProductBox = ({ name, price, promo, stars, image, userStars, id }) => (
+const ProductBox = ({
+  name,
+  price,
+  promo,
+  stars,
+  image,
+  oldPrice,
+  favorite,
+  compare,
+  userStars,
+  id,
+}) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
@@ -26,13 +37,18 @@ const ProductBox = ({ name, price, promo, stars, image, userStars, id }) => (
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline'>
+        <Button className={favorite ? styles.favoriteActive : ''} variant='outline'>
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button className={compare ? styles.compareActive : ''} variant='outline'>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
+      {oldPrice && (
+        <div>
+          <span className={styles.oldPrice}>$ {oldPrice}</span>
+        </div>
+      )}
       <div className={styles.price}>
         <Button className={styles.btnprice} noHover variant='small'>
           $ {price}
@@ -51,6 +67,9 @@ ProductBox.propTypes = {
   image: PropTypes.string,
   userStars: PropTypes.number,
   id: PropTypes.string,
+  oldPrice: PropTypes.number,
+  favorite: PropTypes.bool.isRequired,
+  compare: PropTypes.bool.isRequired,
 };
 
 export default ProductBox;

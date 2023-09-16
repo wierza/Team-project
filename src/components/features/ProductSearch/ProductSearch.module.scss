@@ -2,8 +2,6 @@
 
 .root {
   border: 1px solid $productSearchForm-border-color;
-  display: inline-flex;
-  height: 45px;
   color: $text-color;
 
   .category {
@@ -55,6 +53,16 @@
       border: 0;
       background-color: $productSearchForm-button-bg;
       outline: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    .searchField,
+    .category {
+      border: 1px solid $productSearchForm-border-color;
+      height: 45px;
     }
   }
 }

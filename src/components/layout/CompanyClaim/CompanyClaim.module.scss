@@ -30,8 +30,10 @@
       display: inline-block;
       position: relative;
       color: $text-color-light;
+      @extend %cartHover;
 
       .cartIcon {
+        @extend %transitionHover;
         background-color: $primary;
         width: 55px;
         height: 50px;
@@ -83,21 +85,28 @@
     .cart{
       width: auto;
       position: absolute;
-      right: 0%;
+      right: 2%;
       top: 10%;
-      transform: translate(0, 0);
     }
 
     .phoneNumber{
       width: auto;
       position: absolute;
-      right: 0%;
+      right: 2%;
       bottom: 10%;
-      transform: translate(0, 0);
 
       p{
         font-size: 14px;
       }
+    }
+  }
+}
+
+@media (max-width: 502px) {
+  .companyContainer {
+    .logo {
+      transform: scale(0.8);
+      top: 10px;
     }
   }
 }

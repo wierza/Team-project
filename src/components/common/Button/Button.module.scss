@@ -4,6 +4,8 @@
 // }
 
 .main {
+  @extend %buttonHover;
+  @extend %transitionHover;
   background-color: $button-bg;
   color: $text-color-light;
   font-size: 16px;
@@ -27,12 +29,15 @@
 }
 
 .outline {
+  @extend %buttonHover;
+  @extend %transitionHover;
   display: inline-block;
   padding: 5px 10px;
   border: 1px solid $button-bg;
   color: $text-color;
   font-size: 13px;
   line-height: 22px;
+  margin: 0 5px;
 
   &:not(.noHover):hover {
     background-color: $button-bg;
