@@ -19,16 +19,10 @@ const Sale = () => {
         </div>
         <div className={styles.rightSection}>
           <div className={styles.rightUpPicture}>
-            <img
-              src={'./images/promo/officeChair1.jpg'}
-              alt={sofas[randomSofaIndex].name}
-            />
+            <img src={'./images/promo/officeChair1.jpg'} alt={'office chairs'} />
           </div>
           <div className={styles.rightDownPicture}>
-            <img
-              src={'./images/promo/bedPromo.jpg'}
-              alt={sofas[randomSofaIndex].name}
-            />
+            <img src={'./images/promo/bedPromo.jpg'} alt={'bed'} />
             <p className={styles.collection}>
               <b>Special</b> Collection
             </p>
