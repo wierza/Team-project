@@ -81,3 +81,19 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .root {
+    height: 75%;
+  }
+}
+
+@media (max-width: 300px) {
+  h5 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
