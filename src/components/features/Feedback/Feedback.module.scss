@@ -56,6 +56,7 @@
             background-color: $newFurniture-bg2;
             font-size: 0;
             @extend %transitionHover;
+            
             &.active,
             &:hover {
               background-color: $primary;
