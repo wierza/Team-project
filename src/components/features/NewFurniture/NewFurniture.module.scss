@@ -107,4 +107,31 @@
       }
     }
   }
+
+  .swipeButton {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    .leftButton {
+      border: none;
+      @extend %transitionHover;
+
+    }
+
+    .rightButton {
+      border: none;
+      @extend %transitionHover;
+
+    }
+
+    .leftButton:hover,
+    .rightButton:hover {
+      background-color: transparent;
+      color: $primary;
+      border: none;
+    }
+  }
 }

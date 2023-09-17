@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../../common/Swipeable/Swipeable';
+import Button from '../../common/Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 class NewFurniture extends React.Component {
   state = {
@@ -26,7 +29,7 @@ class NewFurniture extends React.Component {
     return length;
   };
 
-  leftAction = e => {
+  onLeftSwipe = e => {
     e.preventDefault();
     const { activePage, activeCategory } = this.state;
     if (activePage > 0) {
@@ -47,7 +50,7 @@ class NewFurniture extends React.Component {
     }
   };
 
-  rightAction = e => {
+  onRightSwipe = e => {
     e.preventDefault();
     const { activePage, activeCategory } = this.state;
     const currentPageCount = this.getCurrentPageCountLength();
@@ -84,7 +87,7 @@ class NewFurniture extends React.Component {
     }
 
     return (
-      <Swipeable leftAction={this.leftAction} rightAction={this.rightAction}>
+      <Swipeable onLeftSwipe={this.onLeftSwipe} onRightSwipe={this.onRightSwipe}>
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
@@ -112,12 +115,32 @@ class NewFurniture extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+          <div className='container'>
+            <div className={styles.swipeButton}>
+              <Button
+                variant='outline'
+                onClick={this.onLeftSwipe}
+                className={styles.leftButton}
+              >
+                <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+              </Button>
+              <Button
+                variant='outline'
+                onClick={this.onRightSwipe}
+                className={styles.rightButton}
+              >
+                <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
+              </Button>
+            </div>
+            <div className='row'>
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                    <ProductBox {...item} />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </Swipeable>

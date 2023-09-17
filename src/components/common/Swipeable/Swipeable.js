@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Swipeable.module.scss';
-import Button from '../Button/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { useSwipeable } from 'react-swipeable';
 
-const Swipeable = ({ children, leftAction, rightAction }) => {
+const Swipeable = ({ children, onLeftSwipe, onRightSwipe }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -18,39 +14,40 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
   };
 
   const onTouchMove = e => {
+    e.preventDefault();
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => rightAction(),
-    onSwipedRight: () => leftAction(),
+    onSwipedLeft: () => onLeftSwipe(),
+    onSwipedRight: () => onRightSwipe(),
     swipeDuration: 500,
     trackMouse: true,
     preventScrollOnSwipe: true,
   });
 
-  const onTouchEnd = e => {
+  const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minDistanceSwipe;
     const isRightSwipe = distance < -minDistanceSwipe;
     if (isLeftSwipe) {
-      rightAction();
+      onLeftSwipe();
     }
     if (isRightSwipe) {
-      leftAction();
+      onRightSwipe();
     }
   };
 
   const handleKeyPress = useCallback(
     e => {
       if (e.key === 'ArrowLeft') {
-        leftAction();
+        onLeftSwipe();
       } else if (e.key === 'ArrowRight') {
-        rightAction();
+        onRightSwipe();
       }
     },
-    [leftAction, rightAction]
+    [onLeftSwipe, onRightSwipe]
   );
 
   useEffect(() => {
@@ -61,35 +58,21 @@ const Swipeable = ({ children, leftAction, rightAction }) => {
   }, [handleKeyPress]);
 
   return (
-    <div className={styles.swipeable}>
-      <div
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        {...handlers}
-      >
-        <div className={styles.swipeButton}>
-          <Button variant='outline' onClick={leftAction} className={styles.leftButton}>
-            <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
-          </Button>
-          <Button
-            variant='outline'
-            onClick={rightAction}
-            className={styles.rightButton}
-          >
-            <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-          </Button>
-        </div>
-        {children}
-      </div>
+    <div
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      {...handlers}
+    >
+      {children}
     </div>
   );
 };
 
 Swipeable.propTypes = {
   children: PropTypes.node,
-  leftAction: PropTypes.func,
-  rightAction: PropTypes.func,
+  onLeftSwipe: PropTypes.func,
+  onRightSwipe: PropTypes.func,
 };
 
 export default Swipeable;
