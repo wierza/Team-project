@@ -41,3 +41,26 @@
     }
   }
 }
+
+@media (min-width: 503px) and (max-width: 768px) {
+
+  .topMenu span{
+    display: none;
+  }
+}
+
+@media (max-width: 502px) {
+
+  .topMenu span{
+    display: none;
+  }
+
+  .topOptions ul {
+    margin-bottom: 13px;
+
+    li{
+      margin-top: 13px;
+      line-height: 13px;
+    }
+  }
+}

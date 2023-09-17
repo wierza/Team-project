@@ -104,6 +104,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .favoriteActive {
+      background-color: $button-bg;
+      color: $text-color-light;
+    }
+
+    .compareActive {
+      background-color: $button-bg;
+      color: $text-color-light;
+    }
   }
 
   .oldPrice{
