@@ -11,12 +11,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux';
+import { getAll, getProductByImage } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import clsx from 'clsx';
 
 const GallerySlider = () => {
   const topSellers = useSelector(getAll);
+  const imageToFind = './images/furniture/chair/5.jpg';
+
+  const selectedProduct = useSelector(state => getProductByImage(state, imageToFind));
+
+  if (!selectedProduct) {
+    return null;
+  }
 
   return (
     <div className={styles.root}>
@@ -39,7 +46,7 @@ const GallerySlider = () => {
       <div
         className={styles.photo}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}images/furniture/chair/15.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}images/furniture/chair/5.jpg)`,
           backgroundSize: 'cover',
         }}
       >
@@ -69,22 +76,20 @@ const GallerySlider = () => {
         </div>
         <div className={styles.badge}>
           <div className={styles.price}>
-            <h4>$120.00</h4>
-            <h6>$160.00</h6>
+            <h6 className={styles.newPrice}>$ {selectedProduct.price}</h6>
+            {selectedProduct.oldPrice && (
+              <h6 className={styles.oldPrice}>$ {selectedProduct.oldPrice}</h6>
+            )}
           </div>
           <div className={styles.nameBadge}>
-            <h5>Aenean Ru Bristique</h5>
+            <h4>{selectedProduct.name}</h4>
             <div>
               {[1, 2, 3, 4, 5].map(i => (
                 <span key={i} href='#'>
-                  {i <= 2 ? (
-                    <FontAwesomeIcon className={styles.stars} icon={faStar}>
-                      {i} stars
-                    </FontAwesomeIcon>
+                  {i <= selectedProduct.stars ? (
+                    <FontAwesomeIcon className={styles.stars} icon={faStar} />
                   ) : (
-                    <FontAwesomeIcon className={styles.stars} icon={farStar}>
-                      {i} stars
-                    </FontAwesomeIcon>
+                    <FontAwesomeIcon className={styles.stars} icon={farStar} />
                   )}
                 </span>
               ))}
