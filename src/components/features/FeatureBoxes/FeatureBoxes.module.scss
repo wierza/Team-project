@@ -3,3 +3,17 @@
 .root {
   padding: 5rem 0;
 }
+
+@media (max-width: 768px) {
+
+  .featureRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .featureCol {
+    flex-basis: calc(50% - 1rem);
+    margin-bottom: 2rem;
+  }
+}
