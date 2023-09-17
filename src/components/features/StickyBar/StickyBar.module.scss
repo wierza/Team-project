@@ -36,6 +36,8 @@
         &:hover {
             background-color: $primary;
             border: 2px solid $text-color;
+            transform: scale(1.1);
+            margin-left: 10px;
 
             a {
                 color: $text-color-light;
@@ -49,6 +51,7 @@
         height: 100%;
         width: 20%;
         padding: 10px;
+        @extend %transitionHover;
 
         .product_image {
             display: block;

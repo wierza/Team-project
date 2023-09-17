@@ -73,8 +73,9 @@
     }
   }
 
-  .isCompare {
-    color: $primary;
+  .compareActive {
+      background-color: $primary;
+      color: $text-color-light;
   }
 
   .line {
@@ -103,14 +104,9 @@
       background-color: $button-bg;
       color: $text-color-light;
     }
-
-    .compareActive {
-      background-color: $button-bg;
-      color: $text-color-light;
-    }
   }
 
-  .oldPrice{
+  .oldPrice {
     color: $text-color-old-price;
     text-decoration: line-through;
   }

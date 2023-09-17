@@ -6,7 +6,7 @@ export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
 
 export const getCompareProducts = ({ products }) =>
-  products.filter(product => product.isCompare);
+  products.filter(product => product.compare);
 
 /* actions */
 const createActionName = actionName => `app/lists/${actionName}`;
@@ -25,9 +25,10 @@ export default function reducer(statePart = [], action = {}) {
     case TOGGLE_COMPARE:
       return statePart.map(product =>
         product.id === action.payload
-          ? { ...product, isCompare: !product.isCompare }
+          ? { ...product, compare: !product.compare }
           : product
       );
+
     default:
       return statePart;
   }
