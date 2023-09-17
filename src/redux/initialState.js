@@ -307,7 +307,7 @@ const initialState = {
       id: '1',
       name: 'John Smith',
       category: 'Furniture client',
-      image: './images/comments/1.jpg',
+      image: './images/feedback/1.jpg',
       comment:
         'Consetetur sadipscing elitr,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
     },
@@ -315,7 +315,7 @@ const initialState = {
       id: '2',
       name: 'Joh Doe',
       category: 'Furniture client',
-      image: './images/comments/2.jpg',
+      image: './images/feedback/2.jpg',
       comment:
         'Curabitur eget felis at erat sagittis commodo quis vel odio. Proin ultrices tellus non mi vehicula pretium. Aliquam erat volutpat. Pellentesque egestas est ac porta efficitur. Duis vel luctus magna.',
     },
@@ -323,7 +323,7 @@ const initialState = {
       id: '3',
       name: 'Deer Deer',
       category: 'Furniture client',
-      image: './images/comments/3.jpg',
+      image: './images/feedback/3.jpg',
       comment:
         'Consetetur sadipscing elitr,sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.',
     },
