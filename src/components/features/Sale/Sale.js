@@ -13,9 +13,11 @@ const Sale = () => {
       <div className={`container ${styles.mainContainer}`}>
         <div className={styles.leftSection}>
           <img src={sofas[randomSofaIndex].image} alt={sofas[randomSofaIndex].name} />
-          <p className={styles.category}>{sofas[randomSofaIndex].category}</p>
-          <p className={styles.name}>{sofas[randomSofaIndex].name}</p>
-          <div className={styles.discount}>-20%</div>
+          <div className={styles.leftText}>
+            <p>{sofas[randomSofaIndex].name}</p>
+            <p className={styles.category}>{sofas[randomSofaIndex].category}</p>
+            <div className={styles.discount}>-20%</div>
+          </div>
         </div>
         <div className={styles.rightSection}>
           <div className={styles.rightUpPicture}>
@@ -29,11 +31,13 @@ const Sale = () => {
             </div>
           </div>
           <div className={styles.rightDownPicture}>
-            <img src={'./images/promo/bedPromo.jpg'} alt={'bed'} />
-            <p className={styles.collection}>
-              <b>Special</b> Collection
-            </p>
-            <p className={styles.save}>Save up 45% of furniture </p>
+            <img src={'./images/promo/bedPromo(2).jpg'} alt={'bed'} />
+            <div className={styles.rightBottomText}>
+              <p className={styles.specialCollection}>
+                <b>Special</b> Collection
+              </p>
+              <p className={styles.save}>Save up 45% of furniture </p>
+            </div>
           </div>
         </div>
       </div>

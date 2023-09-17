@@ -31,30 +31,25 @@
         width: 100%;
         overflow: hidden;
       }
-
-      .category,
-      .name,
-      .discount {
+      .leftText {
         position: absolute;
         color: $text-color-light;
         z-index: 5;
         font-weight: 600;
-      }
-      .category {
-        top: 55%;
-        left: 7%;
-        font-size: 2rem;
-      }
-      .name {
         top: 50%;
         left: 7%;
-      }
-      .discount {
-        top: 70%;
-        left: 7%;
-        border: 4px solid $text-color-light;
-        padding: 5px;
-        font-size: 1.5rem;
+        line-height: 1rem;
+
+        .category {
+          font-size: 2rem;
+        }
+
+        .discount {
+          border: 4px solid $text-color-light;
+          padding: 10px;
+          font-size: 1.5rem;
+          width: 50%;
+        }
       }
     }
 
@@ -78,16 +73,16 @@
       }
       .rightDownPicture {
         position: relative;
-        .save {
+        .rightBottomText {
           position: absolute;
-          top: 60%;
-          right: 5%;
-        }
-        .collection {
-          position: absolute;
-          right: 5%;
           top: 50%;
-          color: $text-color-light;
+          right: 5%;
+          transform: translate(-5%, -50%);
+          line-height: 0.5rem;
+          text-align: right;
+        }
+        .specialCollection {
+          color: $primary;
         }
       }
       .rightUpPicture {
@@ -95,8 +90,8 @@
         .text {
           position: absolute;
           top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+          left: 30%;
+          transform: translate(-30%, -50%);
           font-size: 1.5rem;
           font-weight: 600;
           line-height: 1rem;
