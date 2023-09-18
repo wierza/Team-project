@@ -66,6 +66,7 @@
             &:hover {
               &::before {
                 border-bottom: 4px solid $primary;
+                transition: opacity 5s ease;
               }
             }
           }
@@ -134,4 +135,14 @@
       border: none;
     }
   }
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 750ms;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 500ms;
 }
