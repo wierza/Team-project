@@ -65,12 +65,11 @@
       letter-spacing: 1px;
     }
 
-    .stars {
-      a {
-        text-decoration: none;
-        color: $text-color;
       }
-    }
+
+  .compareActive {
+      background-color: $primary;
+      color: $text-color-light;
   }
 
   .line {
@@ -96,17 +95,16 @@
     align-items: center;
 
     .favoriteActive {
-      background-color: $button-bg;
-      color: $text-color-light;
-    }
-
-    .compareActive {
-      background-color: $button-bg;
+      background-color: $primary;
       color: $text-color-light;
     }
   }
 
-  .oldPrice{
+  .favourite {
+    background-color: $primary;
+  }
+
+  .oldPrice {
     color: $text-color-old-price;
     text-decoration: line-through;
   }
