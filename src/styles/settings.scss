@@ -15,11 +15,10 @@ $brown: #363636;
 $brown2: #292929;
 $lightBrown: #434343;
 $shadow: rgba(1, 2, 2, 0.2);
+$black: rgb(0, 0, 0);
 $transparent: transparent;
 
-
 // ---------- PROJECT COLOR VARIABLES, USE IN PROJECT ---------- //
-
 
 $primary: $orange;
 
@@ -55,6 +54,8 @@ $productSearchForm-select-bg: $transparent;
 $companyClaimHeader-bg: $brown;
 $companyClaim-phone-text: $lightGray2;
 $companyClaim-cart-counter: $lightGray3;
+
+$star: $black;
 
 $menuBar-box-shadow: $shadow;
 $menuBar-bg: $white;
