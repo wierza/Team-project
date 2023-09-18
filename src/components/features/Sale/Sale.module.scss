@@ -1,6 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  
   .mainContainer {
     display: flex;
     flex-direction: row;
@@ -9,11 +10,13 @@
     p {
       text-transform: uppercase;
     }
+    
     .leftSection {
       height: 420px;
       width: 50%;
       margin-right: 2rem;
       position: relative;
+      
       &::after {
         content: "";
         background-color: $productBox-bg-sale;
@@ -25,12 +28,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
+      
       img {
         object-fit: cover;
         height: 100%;
         width: 100%;
         overflow: hidden;
       }
+      
       .leftText {
         position: absolute;
         color: $text-color-light;
@@ -71,8 +76,10 @@
           overflow: hidden;
         }
       }
+      
       .rightDownPicture {
         position: relative;
+      
         .rightBottomText {
           position: absolute;
           top: 50%;
@@ -81,12 +88,15 @@
           line-height: 0.5rem;
           text-align: right;
         }
+      
         .specialCollection {
           color: $primary;
         }
       }
+
       .rightUpPicture {
         position: relative;
+
         .text {
           position: absolute;
           top: 50%;
@@ -95,9 +105,11 @@
           font-size: 1.5rem;
           font-weight: 600;
           line-height: 1rem;
+
           .save {
             color: $primary;
           }
+
           .collection {
             font-size: 0.8rem;
             line-height: 0.5rem;
