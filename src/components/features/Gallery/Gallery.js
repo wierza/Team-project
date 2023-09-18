@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getProductByImage } from '../../../redux/productsRedux';
 
 const Gallery = () => {
-  const imageToFind = './images/furniture/bed/1.jpg';
+  const imageToFind = './images/furniture/bed/14.jpg';
 
   const selectedProduct = useSelector(state => getProductByImage(state, imageToFind));
 
@@ -33,7 +33,7 @@ const Gallery = () => {
             <div
               className={styles.rightPhoto}
               style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL}/images/furniture/bed/1.jpg)`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/images/furniture/bed/14.jpg)`,
               }}
             >
               <div className={styles.photoInfo}>
