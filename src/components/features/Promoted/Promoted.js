@@ -2,10 +2,14 @@ import React from 'react';
 import styles from './Promoted.module.scss';
 import { useSelector } from 'react-redux';
 import { getAll } from '../../../redux/productsRedux.js';
-import ProductBoxPromo from '../../common/ProductBoxPromo/ProductBoxPromo';
+import ProductBox from '../../common/ProductBox/ProductBox';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRight,
+  faArrowLeft,
+  faShoppingBasket,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Promoted = () => {
   const products = useSelector(getAll);
@@ -13,7 +17,7 @@ const Promoted = () => {
   const product1 = products[5];
   const product2 = products[0];
 
-  const warunekDlaActivwKropkach = 1 === 0;
+  const dotsCondition = 1 === 0;
 
   return (
     <div className={styles.root}>
@@ -29,21 +33,27 @@ const Promoted = () => {
                       <a className={1 === 1 && styles.active} href='#'></a>
                     </li>
                     <li>
-                      <a
-                        className={warunekDlaActivwKropkach && styles.active}
-                        href='#'
-                      ></a>
+                      <a className={dotsCondition && styles.active} href='#'></a>
                     </li>
                     <li>
-                      <a
-                        className={warunekDlaActivwKropkach && styles.active}
-                        href='#'
-                      ></a>
+                      <a className={dotsCondition && styles.active} href='#'></a>
                     </li>
                   </ul>
                 </div>
               </div>
-              <ProductBoxPromo {...product2} />
+              <ProductBox
+                name={product2.name}
+                price={product2.price}
+                promo={product2.promo}
+                stars={product2.stars}
+                image={product2.image}
+                oldPrice={product2.oldPrice}
+                favorite={product2.favorite}
+                compare={product2.compare}
+                userStars={product2.userStars}
+                id={product2.id}
+                promoted={true}
+              />
             </div>
           </div>
           <div className='col-8'>
