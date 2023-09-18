@@ -9,17 +9,18 @@ $lightGray: #b6b6b6;
 $lightGray2: #d8d8d8;
 $lightGray3: #e0e3ed;
 $lightGray4: #a9a9a9;
+$midGray: #3e3e3e;
 $darkGray: #2a2a2a;
+$darkGray-transparent: rgba(42, 42, 42, 0.5);
 $orange: #d58e32;
 $brown: #363636;
 $brown2: #292929;
 $lightBrown: #434343;
 $shadow: rgba(1, 2, 2, 0.2);
+$black: rgb(0, 0, 0);
 $transparent: transparent;
 
-
 // ---------- PROJECT COLOR VARIABLES, USE IN PROJECT ---------- //
-
 
 $primary: $orange;
 
@@ -45,6 +46,11 @@ $productBox-bg-sale: $brown2;
 $productBox-bg-photo: $white-3;
 $productBox-border: $white-2;
 
+$promoted-counter-bg: $midGray;
+$promoted-topBar-bg: $darkGray;
+$promoted-furniture-bg: $darkGray-transparent;
+$promoted-furniture-button-bg: $white;
+
 $newFurniture-bg: $white;
 $newFurniture-border: $white-3;
 $newFurniture-bg2: $white-2;
@@ -56,6 +62,8 @@ $productSearchForm-select-bg: $transparent;
 $companyClaimHeader-bg: $brown;
 $companyClaim-phone-text: $lightGray2;
 $companyClaim-cart-counter: $lightGray3;
+
+$star: $black;
 
 $menuBar-box-shadow: $shadow;
 $menuBar-bg: $white;

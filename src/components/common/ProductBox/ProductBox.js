@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import StarsRating from '../../features/StarsRating/StarsRating';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCompareProducts, toggleCompare } from '../../../redux/productsRedux';
 
@@ -23,7 +24,9 @@ const ProductBox = ({
   oldPrice,
   favorite,
   compare,
+  userStars,
   id,
+  promoted,
 }) => {
   const [compareValue, setCompareValue] = useState(compare);
 
@@ -48,36 +51,62 @@ const ProductBox = ({
     e.preventDefault();
     dispatch(toggleFavourite(id));
   };
-
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
-        {promo && <div className={styles.sale}>{promo}</div>}
-        <img className={styles.image} src={image} alt={name} />
-        <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
-          <Button variant='small'>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-          </Button>
-        </div>
+        {!promoted && promo && <div className={styles.sale}>{promo}</div>}
+        <img
+          className={`${styles.image} ${promoted ? styles.imagePromoted : ''}`}
+          src={image}
+          alt={name}
+        />
+        {promoted && (
+          <div>
+            <Button className={styles.btnBasket} noHover variant='small'>
+              <FontAwesomeIcon icon={faShoppingBasket}>ShoppingBasket</FontAwesomeIcon>
+              <span> ADD TO CART</span>
+            </Button>
+            <div className={styles.counter}>
+              <div className={styles.number}>
+                <h3>25</h3>
+                <p>DAYS</p>
+              </div>
+              <div className={styles.number}>
+                <h3>10</h3>
+                <p>HRS</p>
+              </div>
+              <div className={styles.number}>
+                <h3>45</h3>
+                <p>MINS</p>
+              </div>
+              <div className={styles.number}>
+                <h3>30</h3>
+                <p>SECS</p>
+              </div>
+            </div>
+          </div>
+        )}
+        {!promoted && (
+          <div className={styles.buttons}>
+            <Button variant='small'>Quick View</Button>
+            <Button variant='small'>
+              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+            </Button>
+          </div>
+        )}
       </div>
-      <div className={styles.content}>
+      <div className={`${styles.content} ${promoted ? styles.contentPromoted : ''}`}>
         <h5>{name}</h5>
-        <div className={styles.stars}>
-          {[1, 2, 3, 4, 5].map(i => (
-            <a key={i} href='#'>
-              {i <= stars ? (
-                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-              ) : (
-                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-              )}
-            </a>
-          ))}
-        </div>
+        <StarsRating stars={stars} userStars={userStars} id={id}></StarsRating>
       </div>
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
+          {promoted && (
+            <Button variant='outline'>
+              <FontAwesomeIcon icon={faEye}>Watch</FontAwesomeIcon>
+            </Button>
+          )}
           <Button
             className={favorite ? styles.favoriteActive : ''}
             onClick={handleAddToFavButton}
@@ -85,9 +114,11 @@ const ProductBox = ({
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button className={compare ? styles.compareActive : ''}
+          <Button
+            className={compare ? styles.compareActive : ''}
             onClick={toggleCompareValue}
-            variant='outline'>
+            variant='outline'
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -113,11 +144,12 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   image: PropTypes.string,
-  oldPrice: PropTypes.number,
+  userStars: PropTypes.number,
   id: PropTypes.string,
-  favorite: PropTypes.bool.isRequired,
-  compare: PropTypes.bool.isRequired,
+  oldPrice: PropTypes.number,
+  favorite: PropTypes.bool,
+  compare: PropTypes.bool,
+  promoted: PropTypes.bool,
 };
-
 
 export default ProductBox;
