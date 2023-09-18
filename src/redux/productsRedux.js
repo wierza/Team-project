@@ -11,9 +11,13 @@ export const getCompareProducts = ({ products }) =>
 /* actions */
 const createActionName = actionName => `app/lists/${actionName}`;
 
+const TOGGLE_FAV = createActionName('TOGGLE_FAV');
+
 const TOGGLE_COMPARE = createActionName('TOGGLE_COMPARE');
 
 /* action creators */
+export const toggleFavourite = payload => ({ type: TOGGLE_FAV, payload });
+
 export const toggleCompare = payload => ({
   type: TOGGLE_COMPARE,
   payload,
@@ -29,6 +33,12 @@ export default function reducer(statePart = [], action = {}) {
           : product
       );
 
+    case TOGGLE_FAV:
+      return statePart.map(product =>
+        product.id === action.payload
+          ? { ...product, favorite: !product.favorite }
+          : product
+      );
     default:
       return statePart;
   }

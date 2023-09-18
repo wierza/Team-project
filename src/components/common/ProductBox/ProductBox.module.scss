@@ -101,9 +101,13 @@
     align-items: center;
 
     .favoriteActive {
-      background-color: $button-bg;
+      background-color: $primary;
       color: $text-color-light;
     }
+  }
+
+  .favourite {
+    background-color: $primary;
   }
 
   .oldPrice {

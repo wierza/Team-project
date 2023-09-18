@@ -12,6 +12,8 @@ import Button from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCompareProducts, toggleCompare } from '../../../redux/productsRedux';
 
+import { toggleFavourite } from '../../../redux/productsRedux';
+
 const ProductBox = ({
   name,
   price,
@@ -40,6 +42,11 @@ const ProductBox = ({
     } else {
       return;
     }
+  };
+
+  const handleAddToFavButton = e => {
+    e.preventDefault();
+    dispatch(toggleFavourite(id));
   };
 
   return (
@@ -71,14 +78,16 @@ const ProductBox = ({
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button className={favorite ? styles.favoriteActive : ''} variant='outline'>
+          <Button
+            className={favorite ? styles.favoriteActive : ''}
+            onClick={handleAddToFavButton}
+            variant='outline'
+          >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button
-            className={compare ? styles.compareActive : ''}
-            variant='outline'
+          <Button className={compare ? styles.compareActive : ''}
             onClick={toggleCompareValue}
-          >
+            variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -109,5 +118,6 @@ ProductBox.propTypes = {
   favorite: PropTypes.bool.isRequired,
   compare: PropTypes.bool.isRequired,
 };
+
 
 export default ProductBox;
