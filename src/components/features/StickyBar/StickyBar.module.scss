@@ -1,0 +1,90 @@
+@import "../../../styles/settings.scss";
+
+.sticky_bar {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    width: 100%;
+    height: 170px;
+    background-color: $text-color-light;
+    border-top: 4px solid $featureBox-border;
+    align-items: center;
+    z-index: 1000;
+
+    .compare {
+        position: relative;
+        display: inline-block;
+        height: calc(100% - 20px);
+        width: calc(20% - 20px);
+        @extend %transitionHover;
+
+        a {
+            position: absolute;
+            margin: 0 auto;
+            top: 50%;
+            left: 50%;
+            color: $text-color;
+            font-weight: 600;
+            border: none;
+            transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+            background-color: $primary;
+            border: 2px solid $text-color;
+            transform: scale(1.1);
+            margin-left: 10px;
+
+            a {
+                color: $text-color-light;
+            }
+        }
+    }
+
+    .product_col {
+        position: relative;
+        display: inline-block;
+        height: 100%;
+        width: 20%;
+        padding: 10px;
+        @extend %transitionHover;
+
+        .product_image {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+            border: 2px solid $text-color;
+            ;
+        }
+    }
+
+    .product_col:hover {
+        transform: scale(1.1);
+    }
+
+    .product_close {
+        position: absolute;
+        display: none;
+        top: -10px;
+        right: -10px;
+        padding: 5px;
+        color: $primary;
+        cursor: pointer;
+    }
+
+    .product_col:hover .product_close {
+        display: block;
+    }
+
+    .compare-col {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

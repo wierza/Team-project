@@ -46,7 +46,7 @@ const initialState = {
       userStars: 0,
       oldPrice: 67,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -59,7 +59,7 @@ const initialState = {
       newFurniture: true,
       userStars: 3,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -72,7 +72,7 @@ const initialState = {
       newFurniture: true,
       userStars: 5,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -99,7 +99,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -112,7 +112,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -151,7 +151,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -164,7 +164,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -203,7 +203,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -216,7 +216,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -255,7 +255,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -268,7 +268,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: true,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -307,7 +307,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: false,
-      compare: true,
+      compare: false,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -320,7 +320,7 @@ const initialState = {
       newFurniture: true,
       userStars: 0,
       favorite: true,
-      compare: true,
+      compare: false,
     },
   ],
   cart: {
