@@ -73,6 +73,11 @@
     }
   }
 
+  .compareActive {
+      background-color: $primary;
+      color: $text-color-light;
+  }
+
   .line {
     margin: 0 10px;
     border-bottom: 1px solid $text-color;
@@ -97,11 +102,6 @@
 
     .favoriteActive {
       background-color: $primary;
-      color: $text-color-light;
-    }
-
-    .compareActive {
-      background-color: $button-bg;
       color: $text-color-light;
     }
   }

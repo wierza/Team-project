@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,8 +9,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCompareProducts, toggleCompare } from '../../../redux/productsRedux';
 
-import { useDispatch } from 'react-redux';
 import { toggleFavourite } from '../../../redux/productsRedux';
 
 const ProductBox = ({
@@ -24,7 +25,24 @@ const ProductBox = ({
   compare,
   id,
 }) => {
+  const [compareValue, setCompareValue] = useState(compare);
+
+  const compareProducts = useSelector(state => getCompareProducts(state));
   const dispatch = useDispatch();
+  const toggleCompareValue = e => {
+    e.preventDefault();
+    setCompareValue(!compareValue);
+
+    const productToCompare = compareProducts.find(p => p.id === id);
+
+    if (productToCompare && productToCompare.isCompare) {
+      dispatch(toggleCompare(id));
+    } else if (!productToCompare && compareProducts.length < 4) {
+      dispatch(toggleCompare(id));
+    } else {
+      return;
+    }
+  };
 
   const handleAddToFavButton = e => {
     e.preventDefault();
@@ -67,7 +85,9 @@ const ProductBox = ({
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button className={compare ? styles.compareActive : ''} variant='outline'>
+          <Button className={compare ? styles.compareActive : ''}
+            onClick={toggleCompareValue}
+            variant='outline'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -94,9 +114,10 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   image: PropTypes.string,
   oldPrice: PropTypes.number,
+  id: PropTypes.string,
   favorite: PropTypes.bool.isRequired,
   compare: PropTypes.bool.isRequired,
-  id: PropTypes.string,
 };
+
 
 export default ProductBox;
