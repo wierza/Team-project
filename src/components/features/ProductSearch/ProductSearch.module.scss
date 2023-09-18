@@ -6,9 +6,27 @@
 
   .category {
     border-right: 1px solid $productSearchForm-border-color;
+    position: relative;
+    border-right: 1px solid $productSearchForm-border-color;
     display: flex;
     align-items: center;
-    position: relative;
+    @extend %transitionHover;
+
+    &:hover {
+      background-color: $primary;
+
+      button {
+        color: $productBox-bg;
+      }
+
+      .icon:first-child {
+        color: $productBox-bg;
+      }
+
+      .icon:last-child {
+        color: $productBox-bg;
+      }
+    }
 
     .icon:first-child {
       color: $text-color-primary;
@@ -23,14 +41,57 @@
       z-index: 0;
     }
 
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: $productSearchForm-select-bg;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      margin: 0 24px;
+      outline: none;
     }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $menuBar-bg;;
+      border: 1px solid $productSearchForm-border-color;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      width: 100%;
+    }
+
+    li {
+      padding: 0px 10px;
+      margin: 0;
+      cursor: pointer;
+      line-height: 1.35;
+      @extend %transitionHover;
+
+      &:hover {
+        background-color: $primary;
+
+        .listElement {
+          color: $productBox-bg;
+        }
+      }
+    }
+
+    .listElement {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+
+  .category:hover ul {
+    display: block;
   }
 
   .searchField {

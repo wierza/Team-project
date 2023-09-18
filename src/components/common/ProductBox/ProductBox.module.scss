@@ -24,6 +24,10 @@
       height: 200px;
     }
 
+    .imagePromoted {
+      height: 309px;
+    }
+
     .sale {
       position: absolute;
       top: -30px;
@@ -41,6 +45,57 @@
       display: flex;
       justify-content: space-between;
       margin: 10px;
+    }
+
+    .btnBasket {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .counter {
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      bottom: 0px;
+      width: 100%;
+      padding: 9px;
+
+      .number {
+        margin: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        background: $promoted-counter-bg;
+        width: 71px;
+        height: 71px;
+        border-radius: 50%;
+        text-align: center;
+        color: $text-color-light;
+        margin-bottom: 1px;
+
+        p {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 25px;
+          font-weight: 600;
+        }
+      }
+    }
+    &:hover {
+      .number {
+        display: flex;
+      }
+      .btnBasket {
+        display: block;
+      }
     }
   }
 
@@ -64,13 +119,17 @@
       line-height: 24px;
       letter-spacing: 1px;
     }
+  }
 
-    .stars {
-      a {
-        text-decoration: none;
-        color: $text-color;
-      }
+  .contentPromoted {
+    h5 {
+      color: $text-color;
     }
+  }
+
+  .compareActive {
+      background-color: $primary;
+      color: $text-color-light;
   }
 
   .line {
@@ -96,17 +155,16 @@
     align-items: center;
 
     .favoriteActive {
-      background-color: $button-bg;
-      color: $text-color-light;
-    }
-
-    .compareActive {
-      background-color: $button-bg;
+      background-color: $primary;
       color: $text-color-light;
     }
   }
 
-  .oldPrice{
+  .favourite {
+    background-color: $primary;
+  }
+
+  .oldPrice {
     color: $text-color-old-price;
     text-decoration: line-through;
   }
