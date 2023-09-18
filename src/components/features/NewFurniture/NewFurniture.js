@@ -7,6 +7,7 @@ import Swipeable from '../../common/Swipeable/Swipeable';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import StickyBar from '../StickyBar/StickyBar';
 import { connect } from 'react-redux';
 
 class NewFurniture extends React.Component {
@@ -170,6 +171,7 @@ class NewFurniture extends React.Component {
                 ))}
             </div>
           </div>
+          <StickyBar />
         </div>
       </Swipeable>
     );
