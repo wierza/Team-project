@@ -7,11 +7,15 @@ import Swipeable from '../../common/Swipeable/Swipeable';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    splitPage: true,
+    viewport: this.props.viewport.mode,
+    productsCount: 8,
   };
 
   handlePageChange(newPage) {
@@ -64,13 +68,37 @@ class NewFurniture extends React.Component {
       this.setState({ activeCategory: newCategory, activePage: 0 });
     }
   };
+  
+  componentDidUpdate() {
+    if (this.props.viewport.mode !== this.state.viewport) {
+      const newProductsCount = this.getProductCountToViewport(this.props.viewport.mode);
+
+      this.setState({
+        productsCount: newProductsCount,
+        viewport: this.props.viewport.mode,
+      });
+    }
+  }
+
+  getProductCountToViewport(mode) {
+    switch (mode) {
+      case 'mobile':
+        return 2;
+      case 'tablet':
+        return 3;
+      case 'desktop':
+        return 5;
+      default:
+        return 8;
+    }
+  }
 
   render() {
     const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { activeCategory, activePage, productsCount } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCount = Math.ceil(categoryProducts.length / productsCount);
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -87,7 +115,7 @@ class NewFurniture extends React.Component {
     }
 
     return (
-      <Swipeable onLeftSwipe={this.onLeftSwipe} onRightSwipe={this.onRightSwipe}>
+      <Swipeable onLeftSwipe={this.onLeftSwipe} onRightSwipe={this.onRightSwipe} >
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
@@ -134,7 +162,7 @@ class NewFurniture extends React.Component {
             </div>
             <div className='row'>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * productsCount, (activePage + 1) * productsCount)
                 .map(item => (
                   <div key={item.id} className='col-lg-3 col-md-4 col-sm-6 col-xs-12'>
                     <ProductBox {...item} />
@@ -150,6 +178,8 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
+  viewport: PropTypes.string,
+  mode: PropTypes.string,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -174,4 +204,8 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-export default NewFurniture;
+const mapStateToProps = state => ({
+  viewport: state.viewport,
+});
+
+export default connect(mapStateToProps)(NewFurniture);

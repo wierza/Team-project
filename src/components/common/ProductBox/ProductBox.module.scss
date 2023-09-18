@@ -106,7 +106,7 @@
     align-items: center;
 
     .favoriteActive {
-      background-color: $button-bg;
+      background-color: $primary;
       color: $text-color-light;
     }
 
@@ -116,7 +116,11 @@
     }
   }
 
-  .oldPrice{
+  .favourite {
+    background-color: $primary;
+  }
+
+  .oldPrice {
     color: $text-color-old-price;
     text-decoration: line-through;
   }
