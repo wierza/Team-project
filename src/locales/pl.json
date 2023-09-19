@@ -57,5 +57,28 @@
     "watch": "Obserwuj",
     "favorite": "Ulubione",
     "compare": "Do porównania"
+  },
+  "feedback": {
+    "feedback": "OPINIE KLIENTÓW",
+    "client": "Klient"
+  },
+  "gallery": {
+    "title": "GALERIA ZDJĘĆ",
+    "from": "od",
+    "bed": "Łóżko do sypialni",
+    "shop": "KUP TERAZ"
+  },
+  "gallerySlider": {
+    "featured": "WYRÓŻNIONE",
+    "top": "BESTSELLER",
+    "sale": "WYPRZEDAŻ",
+    "topRated": "DOBRA OCENA",
+    "favourite": "Do ulubionych",
+    "compare": "Porównaj",
+    "quickView": "Szybki podgląd",
+    "cart": "Dodaj do koszyka"
+  },
+  "newFurniture": {
+    "title": "Nowe Meble"
   }
 }

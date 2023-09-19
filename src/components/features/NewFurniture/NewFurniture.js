@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import StickyBar from '../StickyBar/StickyBar';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 
 class NewFurniture extends React.Component {
   state = {
@@ -104,7 +105,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, t } = this.props;
     const { activeCategory, activePage, productsCount } = this.state;
     const { fade } = this.state;
 
@@ -132,7 +133,7 @@ class NewFurniture extends React.Component {
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={'col-auto ' + styles.heading}>
-                  <h3>New furniture</h3>
+                  <h3>{t('newFurniture.title')}</h3>
                 </div>
                 <div className={'col ' + styles.menu}>
                   <ul>
@@ -209,6 +210,7 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
+  t: PropTypes.func,
 };
 
 NewFurniture.defaultProps = {
@@ -220,4 +222,4 @@ const mapStateToProps = state => ({
   viewport: state.viewport,
 });
 
-export default connect(mapStateToProps)(NewFurniture);
+export default connect(mapStateToProps)(withTranslation()(NewFurniture));

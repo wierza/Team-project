@@ -41,20 +41,43 @@
     "bedroom": "bedroom",
     "blog": "blog"
   },
-  "topBar":{
-    "help":"Help",
-    "login":"Login",
-    "register":"Register"
+  "topBar": {
+    "help": "Help",
+    "login": "Login",
+    "register": "Register"
   },
-  "productBox":{
-    "cart":"ADD TO CART",
-    "days":"DAYS",
+  "productBox": {
+    "cart": "ADD TO CART",
+    "days": "DAYS",
     "hours": "HRS",
-    "minutes":"MINS",
-    "seconds":"SECS",
-    "view":"Quick view",
-    "watch":"Watch",
-    "favorite":"Favorite",
-    "compare":"Add to compare"
+    "minutes": "MINS",
+    "seconds": "SECS",
+    "view": "Quick view",
+    "watch": "Watch",
+    "favorite": "Favorite",
+    "compare": "Add to compare"
+  },
+  "feedback": {
+    "feedback": "CLIENT FEEDBACK",
+    "client": "Furniture Client"
+  },
+  "gallery": {
+    "title": "FURNITURE GALLERY",
+    "from": "from",
+    "bed": "Bedroom Bed",
+    "shop": "SHOP NOW"
+  },
+  "gallerySlider": {
+    "featured": "FEATURED",
+    "top": "TOP SELLER",
+    "sale": "SALE OFF",
+    "topRated": "TOP RATED",
+    "favourite": "Add To Favorite",
+    "compare": "Add To Compare",
+    "quickView": "Quick View",
+    "cart": "Add To Cart"
+  },
+  "newFurniture":{
+    "title":"New furniture"
   }
 }

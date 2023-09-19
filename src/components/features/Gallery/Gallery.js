@@ -3,8 +3,11 @@ import styles from './Gallery.module.scss';
 import GallerySlider from './GallerySlider';
 import { useSelector } from 'react-redux';
 import { getProductByImage } from '../../../redux/productsRedux';
+import { useTranslation } from 'react-i18next';
 
 const Gallery = () => {
+  const { t } = useTranslation();
+
   const imageToFind = './images/furniture/bed/14.jpg';
 
   const selectedProduct = useSelector(state => getProductByImage(state, imageToFind));
@@ -20,7 +23,7 @@ const Gallery = () => {
           <div className='col-sm-6'>
             <div className='row no-gutters'>
               <div className={'col ' + styles.heading}>
-                <h3>FURNITURE GALLERY</h3>
+                <h3>{t('gallery.title')}</h3>
               </div>
             </div>
             <div className='row'>
@@ -38,10 +41,10 @@ const Gallery = () => {
             >
               <div className={styles.photoInfo}>
                 <h1>
-                  <span>From</span> ${selectedProduct.price}
+                  <span>{t('gallery.from')}</span> ${selectedProduct.price}
                 </h1>
-                <h1>Bedroom Bed</h1>
-                <button className={styles.shopNow}>SHOP NOW</button>
+                <h1>{t('gallery.bed')}</h1>
+                <button className={styles.shopNow}>{t('gallery.shop')}</button>
               </div>
             </div>
           </div>

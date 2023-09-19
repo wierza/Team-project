@@ -93,10 +93,11 @@ const ProductBox = ({
         {!promoted && (
           <div className={styles.buttoncontainer}>
             <Button variant='small' className={styles.buttons}>
-              Quick View
+              {t('productBox.view')}
             </Button>
             <Button variant='small' className={styles.buttons}>
-              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+              <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon>
+              {t('productBox.cart')}
             </Button>
           </div>
         )}
@@ -110,7 +111,7 @@ const ProductBox = ({
         <div className={styles.outlines}>
           {promoted && (
             <Button variant='outline'>
-              <FontAwesomeIcon icon={faEye}>Watch</FontAwesomeIcon>
+              <FontAwesomeIcon icon={faEye}>{t('productBox.watch')}</FontAwesomeIcon>
             </Button>
           )}
           <Button
@@ -118,14 +119,16 @@ const ProductBox = ({
             onClick={handleAddToFavButton}
             variant='outline'
           >
-            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+            <FontAwesomeIcon icon={faHeart}>{t('productBox.favorite')}</FontAwesomeIcon>
           </Button>
           <Button
             className={compare ? styles.compareActive : ''}
             onClick={toggleCompareValue}
             variant='outline'
           >
-            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+            <FontAwesomeIcon icon={faExchangeAlt}>
+              {t('productBox.compare')}
+            </FontAwesomeIcon>
           </Button>
         </div>
         {oldPrice && (

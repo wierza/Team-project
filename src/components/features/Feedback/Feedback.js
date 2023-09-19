@@ -5,8 +5,11 @@ import styles from './Feedback.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import Coment from '../../common/Coment/Coment.js';
+import { useTranslation } from 'react-i18next';
 
 const Feedback = () => {
+  const { t } = useTranslation();
+
   const comments = useSelector(getAll);
   const commentCount = comments.length;
 
@@ -30,7 +33,7 @@ const Feedback = () => {
         <div className={styles.panelBar}>
           <div className='row no-gutters align-items-end'>
             <div className={'col-auto ' + styles.heading}>
-              <h3>CLIENT FEEDBACK</h3>
+              <h3>{t('feedback.feedback')}</h3>
             </div>
             <div className={'col-auto ' + styles.dots}>
               <ul>{dots}</ul>
