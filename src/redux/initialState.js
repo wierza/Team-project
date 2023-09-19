@@ -950,6 +950,12 @@ const initialState = {
     { id: 4, image: './images/brand/4.jpg' },
     { id: 5, image: './images/brand/5.jpg' },
     { id: 6, image: './images/brand/6.jpg' },
+    { id: 7, image: './images/brand/6.jpg' },
+    { id: 8, image: './images/brand/5.jpg' },
+    { id: 9, image: './images/brand/4.jpg' },
+    { id: 10, image: './images/brand/3.jpg' },
+    { id: 11, image: './images/brand/2.jpg' },
+    { id: 12, image: './images/brand/1.jpg' },
   ],
   viewport: {
     mode: '',
