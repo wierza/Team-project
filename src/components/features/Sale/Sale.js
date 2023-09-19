@@ -5,16 +5,23 @@ import { getProductByID } from '../../../redux/productsRedux';
 import styles from './Sale.module.scss';
 
 const Sale = () => {
-  const sofa = useSelector(state => getProductByID(state, 'aenean-ru-bristique-56'));
+  const idOfPromotedProduct = 'aenean-ru-bristique-56';
+  const promotedProduct = useSelector(state =>
+    getProductByID(state, idOfPromotedProduct)
+  );
+
+  if (!promotedProduct) {
+    return null;
+  }
 
   return (
     <div className={styles.root}>
       <div className={`container ${styles.mainContainer}`}>
         <div className={styles.leftSection}>
-          <img src={sofa[0].image} alt={sofa[0].name} />
+          <img src={promotedProduct.image} alt={promotedProduct.name} />
           <div className={styles.leftText}>
-            <p>{sofa[0].name}</p>
-            <p className={styles.category}>{sofa[0].category}</p>
+            <p>{promotedProduct.name}</p>
+            <p className={styles.category}>{promotedProduct.category}</p>
             <div className={styles.discount}>-20%</div>
           </div>
         </div>
