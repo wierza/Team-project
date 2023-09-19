@@ -7,6 +7,8 @@
 
   .photo {
     position: relative;
+    width: 100%;
+    height: 250px;
 
     background: {
       color: $productBox-bg-photo;
@@ -19,9 +21,9 @@
     align-items: flex-end;
 
     .image {
-      object-fit: cover;
       width: 100%;
-      height: 200px;
+      height: 100%;
+      object-fit: cover;
     }
 
     .imagePromoted {
@@ -39,12 +41,20 @@
       padding: 30px 15px 5px 15px;
     }
 
-    .buttons {
-      @extend %transitionHover;
-      visibility: hidden;
+    .buttoncontainer {
+      position: absolute;
       display: flex;
-      justify-content: space-between;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      bottom: 0;
+    }
+
+    .buttons {
+      visibility: hidden;
       margin: 10px;
+      margin-bottom: 0;
+      @extend %transitionHover;
     }
 
     .btnBasket {
@@ -52,7 +62,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
     }
 
     .counter {
@@ -89,83 +99,84 @@
         }
       }
     }
+
     &:hover {
       .number {
         display: flex;
       }
+
       .btnBasket {
         display: block;
+      }
+
+      .buttons {
+        visibility: visible;
+        background-color: $button-bg;
       }
     }
   }
 
-  &:hover {
-    .buttons {
-      visibility: visible;
-    }
-
-    .btnprice {
-      background-color: $primary;
-    }
-  }
-
-  .content {
-    text-align: center;
-    padding: 20px;
-
-    h5 {
-      color: $primary;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 1px;
-    }
-  }
-
-  .contentPromoted {
-    h5 {
-      color: $text-color;
-    }
-  }
-
-  .compareActive {
-      background-color: $primary;
-      color: $text-color-light;
-  }
-
-  .line {
-    margin: 0 10px;
-    border-bottom: 1px solid $text-color;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 50%;
-      width: 30px;
-      border-bottom: 4px solid $primary;
-      transform: translateX(-50%);
-    }
-  }
-
-  .actions {
-    padding: 15px 10px 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .favoriteActive {
-      background-color: $primary;
-      color: $text-color-light;
-    }
-  }
-
-  .favourite {
+  .btnprice {
     background-color: $primary;
   }
+}
 
-  .oldPrice {
-    color: $text-color-old-price;
-    text-decoration: line-through;
+.content {
+  text-align: center;
+  padding: 20px;
+
+  h5 {
+    color: $primary;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
   }
+}
+
+.contentPromoted {
+  h5 {
+    color: $text-color;
+  }
+}
+
+.compareActive {
+  background-color: $primary;
+  color: $text-color-light;
+}
+
+.line {
+  margin: 0 10px;
+  border-bottom: 1px solid $text-color;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 30px;
+    border-bottom: 4px solid $primary;
+    transform: translateX(-50%);
+  }
+}
+
+.actions {
+  padding: 15px 10px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .favoriteActive {
+    background-color: $primary;
+    color: $text-color-light;
+  }
+}
+
+.favourite {
+  background-color: $primary;
+}
+
+.oldPrice {
+  color: $text-color-old-price;
+  text-decoration: line-through;
 }

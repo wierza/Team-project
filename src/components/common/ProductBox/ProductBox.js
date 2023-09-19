@@ -7,7 +7,7 @@ import {
   faShoppingBasket,
   faEye,
 } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarsRating from '../../features/StarsRating/StarsRating';
 import { useDispatch, useSelector } from 'react-redux';
@@ -87,9 +87,11 @@ const ProductBox = ({
           </div>
         )}
         {!promoted && (
-          <div className={styles.buttons}>
-            <Button variant='small'>Quick View</Button>
-            <Button variant='small'>
+          <div className={styles.buttoncontainer}>
+            <Button variant='small' className={styles.buttons}>
+              Quick View
+            </Button>
+            <Button variant='small' className={styles.buttons}>
               <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
             </Button>
           </div>

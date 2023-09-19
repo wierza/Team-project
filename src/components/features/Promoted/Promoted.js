@@ -5,11 +5,7 @@ import { getAll } from '../../../redux/productsRedux.js';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faArrowRight,
-  faArrowLeft,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Promoted = () => {
   const products = useSelector(getAll);
