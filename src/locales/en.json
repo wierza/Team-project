@@ -77,7 +77,39 @@
     "quickView": "Quick View",
     "cart": "Add To Cart"
   },
-  "newFurniture":{
-    "title":"New furniture"
+  "newFurniture": {
+    "title": "New furniture"
+  },
+  "productSearch": {
+    "category": "Select a category",
+    "bed": "Bed",
+    "chair": "Chair",
+    "sofa": "Sofa",
+    "table": "Table",
+    "dining": "Dining",
+    "search": "Search products..."
+  },
+  "promoted": {
+    "deals": "HOT DEALS",
+    "indoor": "INDOOR",
+    "furniture": "FURNITURE",
+    "text": "SAVE UP TO 50% OF ALL FURNITURE",
+    "shop": "SHOP NOW"
+  },
+  "sale": {
+    "product1": "office",
+    "product2": "chair",
+    "collection": "collection",
+    "special": "special",
+    "text": "Save up 45% of furniture"
+  },
+  "stickyBar": {
+    "compare": "COMPARE"
+  },
+  "featureBoxes": {
+    "shippings": { "title": "Free shipping", "subtitle": "All orders" },
+    "support": { "title": "24/7 customer", "subtitle": "support" },
+    "money": { "title": "Money back", "subtitle": "guarantee" },
+    "discount": { "title": "Member discount", "subtitle": "First order" }
   }
 }

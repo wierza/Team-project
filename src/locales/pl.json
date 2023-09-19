@@ -32,7 +32,6 @@
       "rights": "©Copyright 2016 Bazar | Wszelkie prawa zastrzeżone"
     }
   },
-
   "menuBar": {
     "home": "home",
     "furniture": "meble",
@@ -80,5 +79,37 @@
   },
   "newFurniture": {
     "title": "Nowe Meble"
+  },
+  "productSearch": {
+    "category": "Wybierz kategorię",
+    "bed": "Łóżka",
+    "chair": "Krzesła",
+    "sofa": "Sofy",
+    "table": "Stoły",
+    "dining": "Jadalnia",
+    "search": "Wyszukaj..."
+  },
+  "promoted": {
+    "deals": "GORĄCE OKAZJE",
+    "indoor": "MEBLE",
+    "furniture": "DO WNĘTRZ",
+    "text": "OSZCZĘDŹ DO 50% CENY",
+    "shop": "KUP TERAZ"
+  },
+  "sale": {
+    "product1": "krzesła",
+    "product2": "biurowe",
+    "collection": "zestaw",
+    "special": "specjalna",
+    "text": "Oszczędż do 45% ceny"
+  },
+  "stickyBar": {
+    "compare": "PORÓWNAJ"
+  },
+  "featureBoxes": {
+    "shippings": { "title": "Dostawa gratis", "subtitle": "Dla wszystkich zamówień" },
+    "support": { "title": "Wsparcie klienta ", "subtitle": "24/7" },
+    "money": { "title": "Zwrot pieniędzy", "subtitle": "gwarantowany" },
+    "discount": { "title": "Zniżka", "subtitle": "Na pierwsze zamówienie" }
   }
 }
