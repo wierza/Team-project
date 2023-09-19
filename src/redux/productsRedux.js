@@ -1,7 +1,9 @@
 // selectors
 export const getAll = ({ products }) => products;
-export const getProductByCategory = ({ products }, category) => {
-  return products.filter(product => product.category === category);
+
+export const getProductByID = ({ products }, id) => {
+  const product = products.find(product => product.id === id);
+  return product;
 };
 
 export const getCount = ({ products }) => products.length;
