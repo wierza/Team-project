@@ -1,7 +1,6 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  
   .mainContainer {
     display: flex;
     flex-direction: row;
@@ -10,13 +9,13 @@
     p {
       text-transform: uppercase;
     }
-    
+
     .leftSection {
       height: 420px;
       width: 50%;
       margin-right: 2rem;
       position: relative;
-      
+
       &::after {
         content: "";
         background-color: $productBox-bg-sale;
@@ -28,14 +27,14 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-      
+
       img {
         object-fit: cover;
         height: 100%;
         width: 100%;
         overflow: hidden;
       }
-      
+
       .leftText {
         position: absolute;
         color: $text-color-light;
@@ -76,10 +75,10 @@
           overflow: hidden;
         }
       }
-      
+
       .rightDownPicture {
         position: relative;
-      
+
         .rightBottomText {
           position: absolute;
           top: 50%;
@@ -88,7 +87,7 @@
           line-height: 0.5rem;
           text-align: right;
         }
-      
+
         .specialCollection {
           color: $primary;
         }
@@ -115,6 +114,31 @@
             line-height: 0.5rem;
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+
+    .mainContainer {
+      flex-direction: column;
+      padding: 0;
+      align-items: center;
+    
+      .leftSection,
+      .rightSection {
+        margin: 0;
+        width: 100%;
+      }
+    
+      .leftSection {
+        margin-bottom: 20px;
+      }
+    
+      .rightSection {
+        margin-bottom: 5rem;
       }
     }
   }
