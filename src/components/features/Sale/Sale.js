@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getProductByCategory, getProductByID } from '../../../redux/productsRedux';
+import { getProductByID } from '../../../redux/productsRedux';
 
 import styles from './Sale.module.scss';
 
