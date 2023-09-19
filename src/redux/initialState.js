@@ -943,6 +943,14 @@ const initialState = {
   cart: {
     products: [],
   },
+  brands: [
+    { id: 1, image: './images/brand/1.jpg' },
+    { id: 2, image: './images/brand/2.jpg' },
+    { id: 3, image: './images/brand/3.jpg' },
+    { id: 4, image: './images/brand/4.jpg' },
+    { id: 5, image: './images/brand/5.jpg' },
+    { id: 6, image: './images/brand/6.jpg' },
+  ],
   viewport: {
     mode: '',
   },

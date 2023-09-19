@@ -1,0 +1,85 @@
+@import "../../../styles/settings.scss";
+
+.root {
+    background-color: $brands-bg;
+    margin-bottom: 36px;
+
+    .brandsSectionRow {
+        padding: 0 15px;
+    }
+
+    .sectionElementsWrapper {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid $brands-color-border;
+        border-left: none;
+        border-right: none;
+        padding: 15px 0;
+    }
+
+    .arrowButtonLeft,
+    .arrowButtonRight {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        @extend %transitionHover;
+
+        &:hover {
+            background-color: $button-c;
+        }
+    }
+
+    .angleLeft {
+        @extend %transitionHover;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .angleRight {
+        @extend %transitionHover;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .brandsWrapper {
+        display: flex;
+    }
+
+    .brandImage {
+        img {
+            width: 100%;
+            height: 80px;
+        }
+    }
+}
+
+.arrowButtonLeft,
+.arrowButtonRight {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.angleLeft,
+.angleLeft {
+    @extend %transitionHover;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.brandsWrapper {
+    display: flex;
+}
+
+.brandImage {
+    img {
+        width: 100%;
+        height: 80px;
+    }
+}
