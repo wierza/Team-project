@@ -4,6 +4,10 @@ export const getProductByCategory = ({ products }, category) => {
   return products.filter(product => product.category === category);
 };
 
+export const getProductByID = ({ products }, id) => {
+  return products.filter(product => product.id === id);
+};
+
 export const getCount = ({ products }) => products.length;
 
 export const getNew = ({ products }) =>
