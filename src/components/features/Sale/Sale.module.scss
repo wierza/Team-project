@@ -1,0 +1,121 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  
+  .mainContainer {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5rem;
+
+    p {
+      text-transform: uppercase;
+    }
+    
+    .leftSection {
+      height: 420px;
+      width: 50%;
+      margin-right: 2rem;
+      position: relative;
+      
+      &::after {
+        content: "";
+        background-color: $productBox-bg-sale;
+        opacity: 0.5;
+        height: 90%;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      .leftText {
+        position: absolute;
+        color: $text-color-light;
+        z-index: 5;
+        font-weight: 600;
+        top: 50%;
+        left: 7%;
+        line-height: 1rem;
+
+        .category {
+          font-size: 2rem;
+        }
+
+        .discount {
+          border: 4px solid $text-color-light;
+          padding: 10px;
+          font-size: 1.5rem;
+          width: 50%;
+        }
+      }
+    }
+
+    .rightSection {
+      width: 50%;
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .rightUpPicture,
+      .rightDownPicture {
+        height: 200px;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+      
+      .rightDownPicture {
+        position: relative;
+      
+        .rightBottomText {
+          position: absolute;
+          top: 50%;
+          right: 5%;
+          transform: translate(-5%, -50%);
+          line-height: 0.5rem;
+          text-align: right;
+        }
+      
+        .specialCollection {
+          color: $primary;
+        }
+      }
+
+      .rightUpPicture {
+        position: relative;
+
+        .text {
+          position: absolute;
+          top: 50%;
+          left: 30%;
+          transform: translate(-30%, -50%);
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 1rem;
+
+          .save {
+            color: $primary;
+          }
+
+          .collection {
+            font-size: 0.8rem;
+            line-height: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
