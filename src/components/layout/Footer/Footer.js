@@ -24,7 +24,6 @@ const Footer = ({ children }) => {
           <div className='row'>
             <div className='col-12 text-center col-sm-6 col-md-3'>
               <div className={styles.menuWrapper}>
-                {/* <h6>Information</h6> */}
                 <h6>{t('footer.information.title')}</h6>
                 <ul>
                   <li>

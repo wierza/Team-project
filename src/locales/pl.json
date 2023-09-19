@@ -31,5 +31,15 @@
     "rights": {
       "rights": "©Copyright 2016 Bazar | Wszelkie prawa zastrzeżone"
     }
+  },
+
+  "menuBar": {
+    "home": "home",
+    "furniture": "meble",
+    "chair": "krzesła",
+    "table": "stoły",
+    "sofa": "sofy",
+    "bedroom": "sypialnia",
+    "blog": "blog"
   }
 }

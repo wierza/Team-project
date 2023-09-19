@@ -28,8 +28,17 @@
       "returns": "Returns",
       "shipping": "Shipping"
     },
-    "rights":{
+    "rights": {
       "rights": "©Copyright 2016 Bazar | All Rights Reserved"
     }
+  },
+  "menuBar": {
+    "home": "home",
+    "furniture": "furniture",
+    "chair": "chair",
+    "table": "table",
+    "sofa": "sofa",
+    "bedroom": "bedroom",
+    "blog": "blog"
   }
 }
