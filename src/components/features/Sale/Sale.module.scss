@@ -119,24 +119,23 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .root {
-
     .mainContainer {
       flex-direction: column;
       padding: 0;
       align-items: center;
-    
+
       .leftSection,
       .rightSection {
         margin: 0;
         width: 100%;
       }
-    
+
       .leftSection {
         margin-bottom: 20px;
       }
-    
+
       .rightSection {
         margin-bottom: 5rem;
       }
