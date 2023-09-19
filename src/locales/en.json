@@ -40,5 +40,21 @@
     "sofa": "sofa",
     "bedroom": "bedroom",
     "blog": "blog"
+  },
+  "topBar":{
+    "help":"Help",
+    "login":"Login",
+    "register":"Register"
+  },
+  "productBox":{
+    "cart":"ADD TO CART",
+    "days":"DAYS",
+    "hours": "HRS",
+    "minutes":"MINS",
+    "seconds":"SECS",
+    "view":"Quick view",
+    "watch":"Watch",
+    "favorite":"Favorite",
+    "compare":"Add to compare"
   }
 }

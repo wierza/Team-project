@@ -15,6 +15,8 @@ import { getCompareProducts, toggleCompare } from '../../../redux/productsRedux'
 
 import { toggleFavourite } from '../../../redux/productsRedux';
 
+import { useTranslation } from 'react-i18next';
+
 const ProductBox = ({
   name,
   price,
@@ -28,6 +30,8 @@ const ProductBox = ({
   id,
   promoted,
 }) => {
+  const { t } = useTranslation();
+
   const [compareValue, setCompareValue] = useState(compare);
 
   const compareProducts = useSelector(state => getCompareProducts(state));
@@ -64,24 +68,24 @@ const ProductBox = ({
           <div>
             <Button className={styles.btnBasket} noHover variant='small'>
               <FontAwesomeIcon icon={faShoppingBasket}>ShoppingBasket</FontAwesomeIcon>
-              <span> ADD TO CART</span>
+              <span> {t('productBox.cart')}</span>
             </Button>
             <div className={styles.counter}>
               <div className={styles.number}>
                 <h3>25</h3>
-                <p>DAYS</p>
+                <p>{t('productBox.days')}</p>
               </div>
               <div className={styles.number}>
                 <h3>10</h3>
-                <p>HRS</p>
+                <p>{t('productBox.hours')}</p>
               </div>
               <div className={styles.number}>
                 <h3>45</h3>
-                <p>MINS</p>
+                <p>{t('productBox.minutes')}</p>
               </div>
               <div className={styles.number}>
                 <h3>30</h3>
-                <p>SECS</p>
+                <p>{t('productBox.seconds')}</p>
               </div>
             </div>
           </div>

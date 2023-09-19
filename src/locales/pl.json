@@ -41,5 +41,21 @@
     "sofa": "sofy",
     "bedroom": "sypialnia",
     "blog": "blog"
+  },
+  "topBar": {
+    "help": "Wsparcie",
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się"
+  },
+  "productBox": {
+    "cart": "DO KOSZYKA",
+    "days": "DNI",
+    "hours": "GODZ",
+    "minutes": "MIN",
+    "seconds": "SEK",
+    "view": "Zobacz",
+    "watch": "Obserwuj",
+    "favorite": "Ulubione",
+    "compare": "Do porównania"
   }
 }
