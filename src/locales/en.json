@@ -1,0 +1,35 @@
+{
+  "footer": {
+    "information": {
+      "title": "INFORMATION",
+      "about": "About us",
+      "policy": "Policy",
+      "conditions": "Conditions",
+      "support": "Online support"
+    },
+    "account": {
+      "title": "My account",
+      "login": "Login",
+      "cart": "My cart",
+      "wishlist": "Wishlist",
+      "checkout": "Checkout"
+    },
+    "informationContinue": {
+      "title": "INFORMATION",
+      "specials": "Specials",
+      "new": "New products",
+      "best": "Best Sellers",
+      "our": "Our Stores"
+    },
+    "orders": {
+      "title": "Orders",
+      "payment": "Payment options",
+      "delivery": "Shipping and delivery",
+      "returns": "Returns",
+      "shipping": "Shipping"
+    },
+    "rights":{
+      "rights": "©Copyright 2016 Bazar | All Rights Reserved"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "footer": {
+    "information": {
+      "title": "INFORMACJE",
+      "about": "O nas",
+      "policy": "Polityka Prywatności",
+      "conditions": "Warunki",
+      "support": "Wsparcie online"
+    },
+    "account": {
+      "title": "Moje konto",
+      "login": "Login",
+      "cart": "Mój koszyk",
+      "wishlist": "Ulubione",
+      "checkout": "Podsumowanie"
+    },
+    "informationContinue": {
+      "title": "INFORMACJE",
+      "specials": "Specjalne",
+      "new": "Nowe produkty",
+      "best": "Bestsellery",
+      "our": "Nasze sklepy"
+    },
+    "orders": {
+      "title": "Zamówienia",
+      "payment": "Opcje płatności",
+      "delivery": "Wysyłka i dostawa",
+      "returns": "Zwroty",
+      "shipping": "Wysyłki"
+    },
+    "rights": {
+      "rights": "©Copyright 2016 Bazar | Wszelkie prawa zastrzeżone"
+    }
+  }
+}
