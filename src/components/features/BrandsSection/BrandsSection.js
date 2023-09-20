@@ -5,29 +5,89 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { getAllBrands } from '../../../redux/brandsRedux';
 import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 const BrandsSection = () => {
   const allBrands = useSelector(getAllBrands);
+
+  const breakpoints = {
+    desktop: 6,
+    tablet: 4,
+    mobile: 2,
+  };
+
+  const [visibleBrandsCount, setVisibleBrandsCount] = useState(breakpoints.desktop);
+  const [firstVisibleIndex, setFirstVisibleIndex] = useState(0);
+
+  const handleArrowLeftClick = e => {
+    e.preventDefault();
+    const newIndex = firstVisibleIndex - visibleBrandsCount;
+    if (newIndex >= 0) {
+      setFirstVisibleIndex(newIndex);
+    } else {
+      setFirstVisibleIndex(0);
+    }
+  };
+
+  const handleArrowRightClick = e => {
+    e.preventDefault();
+    const newIndex = firstVisibleIndex + visibleBrandsCount;
+    if (newIndex <= allBrands.length - visibleBrandsCount) {
+      setFirstVisibleIndex(newIndex);
+    } else {
+      setFirstVisibleIndex(allBrands.length - visibleBrandsCount);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setVisibleBrandsCount(breakpoints.desktop);
+      } else if (window.innerWidth >= 768) {
+        setVisibleBrandsCount(breakpoints.tablet);
+      } else {
+        setVisibleBrandsCount(breakpoints.mobile);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [breakpoints.desktop, breakpoints.mobile, breakpoints.tablet]);
 
   return (
     <div className={styles.root}>
       <div className='container'>
         <div className={`row ${styles.brandsSectionRow}`}>
           <div className={`col ${styles.sectionElementsWrapper}`}>
-            <Button className={`${styles.arrowButtonLeft}`} variant='small'>
+            <Button
+              className={`${styles.arrowButtonLeft}`}
+              variant='small'
+              onClick={handleArrowLeftClick}
+            >
               <FontAwesomeIcon
                 icon={faAngleLeft}
                 className={styles.angleLeft}
               ></FontAwesomeIcon>
             </Button>
             <div className={`col ${styles.brandsWrapper}`}>
-              {allBrands.map(item => (
-                <div key={item.id} className={`col-2 ${styles.brandImage}`}>
-                  <img src={item.image} alt='brand' />
-                </div>
-              ))}
+              {allBrands
+                .slice(firstVisibleIndex, firstVisibleIndex + visibleBrandsCount)
+                .map(item => (
+                  <div key={item.id} className={`col-2 ${styles.brandImage}`}>
+                    <img src={item.image} alt='brand' />
+                  </div>
+                ))}
             </div>
-            <Button className={`${styles.arrowButtonRight}`} variant='small'>
+            <Button
+              className={`${styles.arrowButtonRight}`}
+              variant='small'
+              onClick={handleArrowRightClick}
+            >
               <FontAwesomeIcon
                 icon={faAngleRight}
                 className={styles.angleRight}
