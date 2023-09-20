@@ -6,6 +6,9 @@ export const getProductByID = ({ products }, id) => {
   return product;
 };
 
+export const getProductByPromoted = ({ products }) =>
+  products.filter(product => product.promoted === true);
+
 export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) =>
   products.filter(item => item.newFurniture === true);
