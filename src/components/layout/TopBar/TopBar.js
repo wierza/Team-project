@@ -9,7 +9,11 @@ import styles from './TopBar.module.scss';
 import { useTranslation } from 'react-i18next';
 
 const TopBar = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const handleChangeLanguage = lng => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <div className={styles.root}>
@@ -22,10 +26,19 @@ const TopBar = () => {
                   USD <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
                 </a>
               </li>
-              <li>
-                <a href='#'>
-                  English <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
-                </a>
+              <li
+                onClick={() => {
+                  handleChangeLanguage('en');
+                }}
+              >
+                <a href='#'>{t('topBar.language.english')} </a>
+              </li>
+              <li
+                onClick={() => {
+                  handleChangeLanguage('pl');
+                }}
+              >
+                <a href='#'>{t('topBar.language.polish')}</a>
               </li>
               <li>
                 <a href='#'>

@@ -44,7 +44,8 @@
   "topBar": {
     "help": "Wsparcie",
     "login": "Zaloguj się",
-    "register": "Zarejestruj się"
+    "register": "Zarejestruj się",
+    "language": { "english": "Angielski", "polish": "Polski" }
   },
   "productBox": {
     "cart": "DO KOSZYKA",

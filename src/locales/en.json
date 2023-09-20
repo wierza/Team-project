@@ -44,7 +44,8 @@
   "topBar": {
     "help": "Help",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "language": { "english": "English", "polish": "Polish" }
   },
   "productBox": {
     "cart": "ADD TO CART",
