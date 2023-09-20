@@ -7,7 +7,7 @@ import ProductBox from '../../common/ProductBox/ProductBox';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import Swipeable from '../../common/Swipeable/Swipeable.js';
+import Swipeable from '../../common/Swipeable/Swipeable';
 import { useTranslation } from 'react-i18next';
 
 const Promoted = () => {
@@ -15,56 +15,56 @@ const Promoted = () => {
 
   const products = useSelector(getAll);
   const productsPromo = useSelector(getProductByPromoted);
-
-  const [activeProduct1, setActiveProduct1] = useState(9);
-  const [activeProduct2, setActiveProduct2] = useState(0);
-  const [fade, setFade] = useState(true);
-  const [fade2, setFade2] = useState(true);
-
   const productsPromoQuantity = productsPromo.length;
-  const product1 = products[activeProduct1];
-  const product2 = productsPromo[activeProduct2];
 
-  const product1LeftAction = e => {
+  const [activeproductLeftBox, setActiveproductLeftBox] = useState(0);
+  const [activeproductRightBox, setActiveproductRightBox] = useState(0);
+  const [fadeLeftBox, setFadeLeftBox] = useState(true);
+  const [fadeRightBox, setFadeRightBox] = useState(true);
+
+  const productRightBox = products[activeproductRightBox];
+  const productLeftBox = productsPromo[activeproductLeftBox];
+
+  const productRightBoxLeftAction = e => {
     e.preventDefault();
-    if (activeProduct1 > 0) {
-      setFade2(false);
+    if (activeproductRightBox > 0) {
+      setFadeRightBox(false);
       setTimeout(() => {
-        setActiveProduct1(activeProduct1 - 1);
-        setFade2(true);
+        setActiveproductRightBox(activeproductRightBox - 1);
+        setFadeRightBox(true);
       }, 500);
     }
   };
 
-  const product1RightAction = e => {
+  const productRightBoxRightAction = e => {
     e.preventDefault();
-    if (activeProduct1 < products.length) {
-      setFade2(false);
+    if (activeproductRightBox < products.length) {
+      setFadeRightBox(false);
       setTimeout(() => {
-        setActiveProduct1(activeProduct1 + 1);
-        setFade2(true);
+        setActiveproductRightBox(activeproductRightBox + 1);
+        setFadeRightBox(true);
       }, 500);
     }
   };
 
-  const handleCommentChange = i => {
-    setFade(false);
+  const handleProductChange = i => {
+    setFadeLeftBox(false);
     setTimeout(() => {
-      setActiveProduct2(i);
-      setFade(true);
+      setActiveproductLeftBox(i);
+      setFadeLeftBox(true);
     }, 500);
   };
 
   const dots = [];
   for (let i = 0; i < productsPromoQuantity; i++) {
     dots.push(
-      <li key={i}>
-        <p
-          onClick={() => handleCommentChange(i)}
-          className={i === activeProduct2 ? styles.active : ''}
+      <li key={productsPromo[i].id}>
+        <button
+          onClick={() => handleProductChange(i)}
+          className={i === activeproductLeftBox ? styles.active : ''}
         >
-          comment {i}
-        </p>
+          product {i}
+        </button>
       </li>
     );
   }
@@ -73,46 +73,50 @@ const Promoted = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className={`col-4 ${styles.productPromoBox}`}>
-            <div className={styles.productPromo}>
-              <div className={styles.topBar}>
-                <span>{t('promoted.deals')}</span>
-                <div className={'col-auto ' + styles.dots}>
-                  <ul>{dots}</ul>
+          {productsPromoQuantity ? (
+            <div className={`col-4 ${styles.productPromoBox}`}>
+              <div className={styles.productPromo}>
+                <div className={styles.topBar}>
+                  <span>{t('promoted.deals')}</span>
+                  <div className={'col-auto ' + styles.dots}>
+                    <ul>{dots}</ul>
+                  </div>
+                </div>
+                <div className={`${fadeLeftBox ? styles.fadeIn : styles.fadeOut}`}>
+                  <ProductBox
+                    name={productLeftBox.name}
+                    price={productLeftBox.price}
+                    promo={productLeftBox.promo}
+                    stars={productLeftBox.stars}
+                    image={productLeftBox.image}
+                    oldPrice={productLeftBox.oldPrice}
+                    favorite={productLeftBox.favorite}
+                    compare={productLeftBox.compare}
+                    userStars={productLeftBox.userStars}
+                    id={productLeftBox.id}
+                    promoted={true}
+                  />
                 </div>
               </div>
-              <div className={`${fade ? styles.fadeIn : styles.fadeOut}`}>
-                <ProductBox
-                  name={product2.name}
-                  price={product2.price}
-                  promo={product2.promo}
-                  stars={product2.stars}
-                  image={product2.image}
-                  oldPrice={product2.oldPrice}
-                  favorite={product2.favorite}
-                  compare={product2.compare}
-                  userStars={product2.userStars}
-                  id={product2.id}
-                  promoted={true}
-                />
-              </div>
             </div>
-          </div>
+          ) : (
+            ''
+          )}
           <div className={'col'}>
             <Swipeable
-              onLeftSwipe={product1LeftAction}
-              onRightSwipe={product1RightAction}
+              onLeftSwipe={productRightBoxLeftAction}
+              onRightSwipe={productRightBoxRightAction}
             >
               <div className={styles.photoSale}>
                 <div
                   className={`${styles.image} + ${
-                    fade2 ? styles.fadeIn : styles.fadeOut
+                    fadeRightBox ? styles.fadeIn : styles.fadeOut
                   }`}
                 >
                   <img
                     className={styles.img}
-                    src={product1.image}
-                    alt={product1.name}
+                    src={productRightBox.image}
+                    alt={productRightBox.name}
                   />
                   <div className={styles.furniture}>
                     <h2>
@@ -129,14 +133,14 @@ const Promoted = () => {
                   <Button
                     variant='outline'
                     className={styles.button}
-                    onClick={product1LeftAction}
+                    onClick={productRightBoxLeftAction}
                   >
                     <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
                   </Button>
                   <Button
                     variant='outline'
                     className={styles.button}
-                    onClick={product1RightAction}
+                    onClick={productRightBoxRightAction}
                   >
                     <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
                   </Button>

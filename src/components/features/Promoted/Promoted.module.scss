@@ -27,13 +27,15 @@
 
           li {
             display: inline-block;
+            padding: 13px 0 0 0;
             margin-left: 0.5rem;
 
-            p {
+            button {
               display: block;
               width: 13px;
               height: 13px;
               border-radius: 6px;
+              border: none;
               background-color: $productBox-bg-photo;
               font-size: 0;
 
