@@ -54,13 +54,13 @@ const Feedback = () => {
   const dots = [];
   for (let i = 0; i < commentCount; i++) {
     dots.push(
-      <li key={i}>
-        <p
+      <li key={comments[i].id}>
+        <button
           onClick={() => handleCommentChange(i)}
           className={i === activeComment && styles.active}
         >
           comment {i}
-        </p>
+        </button>
       </li>
     );
   }

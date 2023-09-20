@@ -39,7 +39,7 @@
 
       ul {
         margin: 0;
-        padding: 0 0 0 1rem;
+        padding: 6px 0 0 1rem;
         list-style: none;
         background-color: $newFurniture-bg;
         transform: translateY(15px);
@@ -48,11 +48,12 @@
           display: inline-block;
           margin-left: 0.5rem;
 
-          p {
+          button {
             display: block;
             width: 13px;
             height: 13px;
             border-radius: 6px;
+            border: none;
             background-color: $newFurniture-bg2;
             font-size: 0;
             @extend %transitionHover;
