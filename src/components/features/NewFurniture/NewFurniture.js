@@ -143,7 +143,7 @@ class NewFurniture extends React.Component {
                           className={item.id === activeCategory ? styles.active : ''}
                           onClick={() => this.handleCategoryChange(item.id)}
                         >
-                          {item.name}
+                          {t(item.translationKey)}
                         </a>
                       </li>
                     ))}

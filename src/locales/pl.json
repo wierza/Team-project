@@ -100,7 +100,7 @@
     "product1": "krzesła",
     "product2": "biurowe",
     "collection": "zestaw",
-    "special": "specjalna",
+    "special": "specjalny",
     "text": "Oszczędż do 45% ceny"
   },
   "stickyBar": {
@@ -111,5 +111,12 @@
     "support": { "title": "Wsparcie klienta ", "subtitle": "24/7" },
     "money": { "title": "Zwrot pieniędzy", "subtitle": "gwarantowany" },
     "discount": { "title": "Zniżka", "subtitle": "Na pierwsze zamówienie" }
+  },
+  "furniture": {
+    "bed": "Łóżka",
+    "chair": "Krzesła",
+    "table": "Stoły",
+    "sofa": "Sofy",
+    "dining": "Jadalnia"
   }
 }

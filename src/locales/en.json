@@ -111,5 +111,12 @@
     "support": { "title": "24/7 customer", "subtitle": "support" },
     "money": { "title": "Money back", "subtitle": "guarantee" },
     "discount": { "title": "Member discount", "subtitle": "First order" }
+  },
+  "furniture": {
+    "bed": "Bed",
+    "chair": "Chair",
+    "table": "Table",
+    "sofa": "Sofa",
+    "dining": "Dining"
   }
 }
