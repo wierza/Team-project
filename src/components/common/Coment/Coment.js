@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Coment.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Coment = ({ ...props }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.main}>
       <p className={styles.content}>{props.comment}</p>
@@ -13,7 +16,7 @@ const Coment = ({ ...props }) => {
         </div>
         <div className={styles.info}>
           <p>{props.name}</p>
-          <span>{props.category}</span>
+          <span>{t('feedback.client')}</span>
         </div>
       </div>
     </div>
