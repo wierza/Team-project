@@ -6,8 +6,11 @@ import ProductBox from '../../common/ProductBox/ProductBox';
 import Button from '../../common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const Promoted = () => {
+  const { t } = useTranslation();
+
   const products = useSelector(getAll);
 
   const product1 = products[5];
@@ -22,7 +25,7 @@ const Promoted = () => {
           <div className='col-4'>
             <div className={styles.productPromo}>
               <div className={styles.topBar}>
-                <span>HOT DEALS</span>
+                <span>{t('promoted.deals')}</span>
                 <div className={styles.dots}>
                   <ul>
                     <li>
@@ -58,11 +61,12 @@ const Promoted = () => {
                 <img className={styles.img} src={product1.image} alt={product1.name} />
                 <div className={styles.furniture}>
                   <h2>
-                    INDOOR<span>FURNITURE</span>
+                    {t('promoted.indoor')}
+                    <span>{t('promoted.furniture')}</span>
                   </h2>
-                  <p>SAVE UP TO 50% OF ALL FURNITURE</p>
+                  <p>{t('promoted.text')}</p>
                   <Button variant='outline' className={styles.shopNowButton}>
-                    SHOP NOW
+                    {t('promoted.shop')}
                   </Button>
                 </div>
               </div>

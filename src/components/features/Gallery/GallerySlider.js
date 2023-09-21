@@ -15,8 +15,11 @@ import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import clsx from 'clsx';
 import Swipeable from '../../common/Swipeable/Swipeable';
+import { useTranslation } from 'react-i18next';
 
 const GallerySlider = () => {
+  const { t } = useTranslation();
+
   const topSellers = useSelector(getAll);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -60,18 +63,18 @@ const GallerySlider = () => {
     <div className={styles.root}>
       <div className={'row no-gutters ' + styles.categories}>
         <div className={'col'}>
-          <a href='#'>FEATURED</a>
+          <a href=''>{t('gallerySlider.featured')}</a>
         </div>
         <div className='col'>
-          <a href='#' className={styles.active}>
-            TOP SELLER
+          <a href='' className={styles.active}>
+            {t('gallerySlider.top')}
           </a>
         </div>
         <div className='col'>
-          <a href='#'>SALE OFF</a>
+          <a href=''>{t('gallerySlider.sale')}</a>
         </div>
         <div className='col'>
-          <a href='#'>TOP RATED</a>
+          <a href=''>{t('gallerySlider.topRated')}</a>
         </div>
       </div>
       <div
@@ -85,25 +88,25 @@ const GallerySlider = () => {
           <Button variant='outline'>
             <FontAwesomeIcon icon={faHeart} className={styles.icon}></FontAwesomeIcon>
           </Button>
-          <span className={styles.tooltiptext}>Add To Favorite</span>
+          <span className={styles.tooltiptext}>{t('gallerySlider.favourite')}</span>
           <Button variant='outline'>
             <FontAwesomeIcon
               icon={faExchangeAlt}
               className={styles.icon}
             ></FontAwesomeIcon>
           </Button>
-          <span className={styles.tooltiptext}>Add To Compare</span>
+          <span className={styles.tooltiptext}>{t('gallerySlider.compare')}</span>
           <Button variant='outline'>
             <FontAwesomeIcon icon={faEye} className={styles.icon}></FontAwesomeIcon>
           </Button>
-          <span className={styles.tooltiptext}>Quick View</span>
+          <span className={styles.tooltiptext}>{t('gallerySlider.quickView')}</span>
           <Button variant='outline'>
             <FontAwesomeIcon
               icon={faShoppingBasket}
               className={styles.icon}
             ></FontAwesomeIcon>
           </Button>
-          <span className={styles.tooltiptext}>Add To Cart</span>
+          <span className={styles.tooltiptext}>{t('gallerySlider.cart')}</span>
         </div>
         <div className={styles.badge}>
           <div className={styles.price}>

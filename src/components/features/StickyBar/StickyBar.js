@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCompareProducts, toggleCompare } from '../../../redux/productsRedux';
 import styles from './StickyBar.module.scss';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const StickyBar = () => {
+  const { t } = useTranslation();
+
   const compareProducts = useSelector(state => getCompareProducts(state));
   const dispatch = useDispatch();
 
@@ -30,7 +33,7 @@ const StickyBar = () => {
         </div>
       ))}
       <div className={styles.compare}>
-        <a href='#'>COMPARE</a>
+        <a href='#'>{t('stickyBar.compare')}</a>
       </div>
     </div>
   );

@@ -1,0 +1,123 @@
+{
+  "footer": {
+    "information": {
+      "title": "INFORMATION",
+      "about": "About us",
+      "policy": "Policy",
+      "conditions": "Conditions",
+      "support": "Online support"
+    },
+    "account": {
+      "title": "My account",
+      "login": "Login",
+      "cart": "My cart",
+      "wishlist": "Wishlist",
+      "checkout": "Checkout"
+    },
+    "informationContinue": {
+      "title": "INFORMATION",
+      "specials": "Specials",
+      "new": "New products",
+      "best": "Best Sellers",
+      "our": "Our Stores"
+    },
+    "orders": {
+      "title": "Orders",
+      "payment": "Payment options",
+      "delivery": "Shipping and delivery",
+      "returns": "Returns",
+      "shipping": "Shipping"
+    },
+    "rights": {
+      "rights": "©Copyright 2016 Bazar | All Rights Reserved"
+    }
+  },
+  "menuBar": {
+    "home": "home",
+    "furniture": "furniture",
+    "chair": "chair",
+    "table": "table",
+    "sofa": "sofa",
+    "bedroom": "bedroom",
+    "blog": "blog"
+  },
+  "topBar": {
+    "help": "Help",
+    "login": "Login",
+    "register": "Register",
+    "language": { "english": "English", "polish": "Polish" }
+  },
+  "productBox": {
+    "cart": "ADD TO CART",
+    "days": "DAYS",
+    "hours": "HRS",
+    "minutes": "MINS",
+    "seconds": "SECS",
+    "view": "Quick view",
+    "watch": "Watch",
+    "favorite": "Favorite",
+    "compare": "Add to compare"
+  },
+  "feedback": {
+    "feedback": "CLIENT FEEDBACK",
+    "client": "Furniture Client"
+  },
+  "gallery": {
+    "title": "FURNITURE GALLERY",
+    "from": "from",
+    "bed": "Bedroom Bed",
+    "shop": "SHOP NOW"
+  },
+  "gallerySlider": {
+    "featured": "FEATURED",
+    "top": "TOP SELLER",
+    "sale": "SALE OFF",
+    "topRated": "TOP RATED",
+    "favourite": "Add To Favorite",
+    "compare": "Add To Compare",
+    "quickView": "Quick View",
+    "cart": "Add To Cart"
+  },
+  "newFurniture": {
+    "title": "New furniture"
+  },
+  "productSearch": {
+    "category": "Select a category",
+    "bed": "Bed",
+    "chair": "Chair",
+    "sofa": "Sofa",
+    "table": "Table",
+    "dining": "Dining",
+    "search": "Search products..."
+  },
+  "promoted": {
+    "deals": "HOT DEALS",
+    "indoor": "INDOOR",
+    "furniture": "FURNITURE",
+    "text": "SAVE UP TO 50% OF ALL FURNITURE",
+    "shop": "SHOP NOW"
+  },
+  "sale": {
+    "product1": "office",
+    "product2": "chair",
+    "collection": "collection",
+    "special": "special",
+    "text": "Save up 45% of furniture"
+  },
+  "stickyBar": {
+    "compare": "COMPARE"
+  },
+  "featureBoxes": {
+    "shippings": { "title": "Free shipping", "subtitle": "All orders" },
+    "support": { "title": "24/7 customer", "subtitle": "support" },
+    "money": { "title": "Money back", "subtitle": "guarantee" },
+    "discount": { "title": "Member discount", "subtitle": "First order" }
+  },
+  "furniture": {
+    "bed": "Bed",
+    "chair": "Chair",
+    "table": "Table",
+    "sofa": "Sofa",
+    "dining": "Dining"
+  }
+}

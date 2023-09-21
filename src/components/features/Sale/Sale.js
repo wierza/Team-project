@@ -3,8 +3,11 @@ import { useSelector } from 'react-redux';
 import { getProductByID } from '../../../redux/productsRedux';
 
 import styles from './Sale.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Sale = () => {
+  const { t } = useTranslation();
+
   const idOfPromotedProduct = 'aenean-ru-bristique-56';
   const promotedProduct = useSelector(state =>
     getProductByID(state, idOfPromotedProduct)
@@ -30,9 +33,9 @@ const Sale = () => {
             <img src={'/images/promo/officeChair1.jpg'} alt={'office chairs'} />
             <div className={styles.text}>
               <p className={styles.officeChair}>
-                <b>Office</b> Chair
+                <b>{t('sale.product1')}</b> {t('sale.product2')}
               </p>
-              <p className={styles.collection}>Collection</p>
+              <p className={styles.collection}>{t('sale.collection')}</p>
               <p className={styles.save}>$200.00 </p>
             </div>
           </div>
@@ -40,9 +43,9 @@ const Sale = () => {
             <img src={'/images/promo/bedPromo(2).jpg'} alt={'bed'} />
             <div className={styles.rightBottomText}>
               <p className={styles.specialCollection}>
-                <b>Special</b> Collection
+                <b>{t('sale.special')}</b> {t('sale.collection')}
               </p>
-              <p className={styles.save}>Save up 45% of furniture </p>
+              <p className={styles.save}>{t('sale.text')} </p>
             </div>
           </div>
         </div>

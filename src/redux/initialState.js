@@ -1,10 +1,10 @@
 const initialState = {
   categories: [
-    { id: 'bed', name: 'Bed' },
-    { id: 'chair', name: 'Chair' },
-    { id: 'dining', name: 'Dining' },
-    { id: 'sofa', name: 'Sofa' },
-    { id: 'table', name: 'Table' },
+    { id: 'bed', name: 'Bed', translationKey: 'furniture.bed' },
+    { id: 'chair', name: 'Chair', translationKey: 'furniture.chair' },
+    { id: 'dining', name: 'Dining', translationKey: 'furniture.dining' },
+    { id: 'sofa', name: 'Sofa', translationKey: 'furniture.sofa' },
+    { id: 'table', name: 'Table', translationKey: 'furniture.table' },
   ],
   products: [
     {
@@ -950,6 +950,12 @@ const initialState = {
     { id: 4, image: './images/brand/4.jpg' },
     { id: 5, image: './images/brand/5.jpg' },
     { id: 6, image: './images/brand/6.jpg' },
+    { id: 7, image: './images/brand/6.jpg' },
+    { id: 8, image: './images/brand/5.jpg' },
+    { id: 9, image: './images/brand/4.jpg' },
+    { id: 10, image: './images/brand/3.jpg' },
+    { id: 11, image: './images/brand/2.jpg' },
+    { id: 12, image: './images/brand/1.jpg' },
   ],
   viewport: {
     mode: '',

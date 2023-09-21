@@ -7,7 +7,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useTranslation } from 'react-i18next';
+
 const MenuBar = ({ children }) => {
+  const { t } = useTranslation();
+
   const [isHamburgerClicked, setIsHamburgerClicked] = useState(false);
 
   return (
@@ -34,26 +38,26 @@ const MenuBar = ({ children }) => {
             <ul className='d-flex flex-column flex-md-row'>
               <li>
                 <a href='#' className={styles.active}>
-                  Home
+                  {t('menuBar.home')}
                 </a>
               </li>
               <li>
-                <a href='#'>Furniture</a>
+                <a href='#'>{t('menuBar.furniture')}</a>
               </li>
               <li>
-                <a href='#'>Chair</a>
+                <a href='#'>{t('menuBar.chair')}</a>
               </li>
               <li>
-                <a href='#'>Table</a>
+                <a href='#'>{t('menuBar.table')}</a>
               </li>
               <li>
-                <a href='#'>Sofa</a>
+                <a href='#'>{t('menuBar.sofa')}</a>
               </li>
               <li>
-                <a href='#'>Bedroom</a>
+                <a href='#'>{t('menuBar.bedroom')}</a>
               </li>
               <li>
-                <a href='#'>Blog</a>
+                <a href='#'>{t('menuBar.blog')}</a>
               </li>
             </ul>
           </div>
