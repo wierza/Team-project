@@ -15,10 +15,13 @@ const Promoted = () => {
 
   const products = useSelector(getAll);
   const productsPromo = useSelector(getProductByPromoted);
+  const productsQuantity = products.length;
   const productsPromoQuantity = productsPromo.length;
 
+  // Set the default value of the active product to the first product
   const [activeproductLeftBox, setActiveproductLeftBox] = useState(0);
   const [activeproductRightBox, setActiveproductRightBox] = useState(0);
+
   const [fadeLeftBox, setFadeLeftBox] = useState(true);
   const [fadeRightBox, setFadeRightBox] = useState(true);
 
@@ -99,55 +102,55 @@ const Promoted = () => {
                 </div>
               </div>
             </div>
-          ) : (
-            ''
-          )}
-          <div className={'col'}>
-            <Swipeable
-              onLeftSwipe={productRightBoxLeftAction}
-              onRightSwipe={productRightBoxRightAction}
-            >
-              <div className={styles.photoSale}>
-                <div
-                  className={`${styles.image} + ${
-                    fadeRightBox ? styles.fadeIn : styles.fadeOut
-                  }`}
-                >
-                  <img
-                    className={styles.img}
-                    src={productRightBox.image}
-                    alt={productRightBox.name}
-                  />
-                  <div className={styles.furniture}>
-                    <h2>
-                      {t('promoted.indoor')}
-                      <span>{t('promoted.furniture')}</span>
-                    </h2>
-                    <p>{t('promoted.text')}</p>
-                    <Button variant='outline' className={styles.shopNowButton}>
-                      {t('promoted.shop')}
+          ) : null}
+          {productsQuantity ? (
+            <div className={'col'}>
+              <Swipeable
+                onLeftSwipe={productRightBoxLeftAction}
+                onRightSwipe={productRightBoxRightAction}
+              >
+                <div className={styles.photoSale}>
+                  <div
+                    className={`${styles.image} + ${
+                      fadeRightBox ? styles.fadeIn : styles.fadeOut
+                    }`}
+                  >
+                    <img
+                      className={styles.img}
+                      src={productRightBox.image}
+                      alt={productRightBox.name}
+                    />
+                    <div className={styles.furniture}>
+                      <h2>
+                        {t('promoted.indoor')}
+                        <span>{t('promoted.furniture')}</span>
+                      </h2>
+                      <p>{t('promoted.text')}</p>
+                      <Button variant='outline' className={styles.shopNowButton}>
+                        {t('promoted.shop')}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className={styles.buttons}>
+                    <Button
+                      variant='outline'
+                      className={styles.button}
+                      onClick={productRightBoxLeftAction}
+                    >
+                      <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+                    </Button>
+                    <Button
+                      variant='outline'
+                      className={styles.button}
+                      onClick={productRightBoxRightAction}
+                    >
+                      <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
                     </Button>
                   </div>
                 </div>
-                <div className={styles.buttons}>
-                  <Button
-                    variant='outline'
-                    className={styles.button}
-                    onClick={productRightBoxLeftAction}
-                  >
-                    <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
-                  </Button>
-                  <Button
-                    variant='outline'
-                    className={styles.button}
-                    onClick={productRightBoxRightAction}
-                  >
-                    <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-                  </Button>
-                </div>
-              </div>
-            </Swipeable>
-          </div>
+              </Swipeable>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
