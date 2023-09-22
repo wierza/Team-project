@@ -103,12 +103,6 @@ const Promoted = () => {
     });
   }
 
-  let startAnimationAtStartPage = true;
-
-  if (startAnimationAtStartPage) {
-    startAnimationAtStartPage = false;
-  }
-
   const dots = [];
   for (let i = 0; i < productsPromoQuantity; i++) {
     dots.push(
