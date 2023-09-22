@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styles from './Promoted.module.scss';
 import { useSelector } from 'react-redux';
 import { getAll, getProductByPromoted } from '../../../redux/productsRedux.js';
@@ -28,6 +28,11 @@ const Promoted = () => {
   const productRightBox = products[activeproductRightBox];
   const productLeftBox = productsPromo[activeproductLeftBox];
 
+  const [intervalId, setIntervalId] = useState();
+  let [animationCounter, setAnimationCounter] = useState({
+    num: 0,
+  });
+
   const productRightBoxLeftAction = e => {
     e.preventDefault();
     if (activeproductRightBox > 0) {
@@ -51,12 +56,58 @@ const Promoted = () => {
   };
 
   const handleProductChange = i => {
+    clearInterval(intervalId);
+    productChange(i);
+    setTimeout(() => {
+      startAnimation();
+    }, 9500);
+  };
+
+  const productChange = i => {
     setFadeLeftBox(false);
     setTimeout(() => {
       setActiveproductLeftBox(i);
       setFadeLeftBox(true);
     }, 500);
   };
+
+  const changeSlide = () => {
+    setAnimationCounter(prevState => {
+      return {
+        num: prevState.num + 1,
+      };
+    });
+  };
+
+  const startAnimation = useCallback(() => {
+    const id = setInterval(changeSlide, 3000);
+    setIntervalId(id);
+  }, []);
+
+  useEffect(() => {
+    startAnimation();
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [intervalId, startAnimation]);
+
+  useEffect(() => {
+    productChange(animationCounter.num);
+  }, [animationCounter]);
+
+  if (animationCounter.num === productsPromoQuantity) {
+    setAnimationCounter(() => {
+      return {
+        num: 0,
+      };
+    });
+  }
+
+  let startAnimationAtStartPage = true;
+
+  if (startAnimationAtStartPage) {
+    startAnimationAtStartPage = false;
+  }
 
   const dots = [];
   for (let i = 0; i < productsPromoQuantity; i++) {
