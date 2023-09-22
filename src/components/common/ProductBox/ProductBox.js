@@ -57,7 +57,7 @@ const ProductBox = ({
   };
   return (
     <div className={styles.root}>
-      <div className={styles.photo}>
+      <div className={`${styles.photo} ${promoted ? styles.photoPromoted : ''}`}>
         {!promoted && promo && <div className={styles.sale}>{promo}</div>}
         <img
           className={`${styles.image} ${promoted ? styles.imagePromoted : ''}`}

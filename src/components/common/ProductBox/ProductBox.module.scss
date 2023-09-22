@@ -26,10 +26,6 @@
       object-fit: cover;
     }
 
-    .imagePromoted {
-      height: 309px;
-    }
-
     .sale {
       position: absolute;
       top: -30px;
@@ -114,6 +110,10 @@
         background-color: $button-bg;
       }
     }
+  }
+
+  .photoPromoted {
+    height: 309px;
   }
 
   .btnprice {

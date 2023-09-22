@@ -23,18 +23,19 @@
       .dots {
         ul {
           margin: 0;
-          padding: 0 1rem 0 0;
           list-style: none;
 
           li {
             display: inline-block;
+            padding: 13px 0 0 0;
             margin-left: 0.5rem;
 
-            a {
+            button {
               display: block;
               width: 13px;
               height: 13px;
               border-radius: 6px;
+              border: none;
               background-color: $productBox-bg-photo;
               font-size: 0;
 
@@ -134,6 +135,38 @@
           border-color: $primary;
         }
       }
+    }
+  }
+
+  .fadeIn {
+    opacity: 1;
+    transition: opacity 750ms;
+    }
+
+  .fadeOut {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+}
+
+@media (max-width: 991px) {
+  .root{
+    .productPromoBox {
+      display: none;
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .root .photoSale .furniture{
+    h2 {
+      font-size: 30px;
+      font-weight: 300;
+    }
+
+    p {
+      font-size: 14px;
     }
   }
 }
