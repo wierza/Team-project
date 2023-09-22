@@ -70,6 +70,11 @@
                 text-decoration-color: $gallery-color;
                 text-decoration-thickness: 1px;
             }
+
+            .centeredPrice {
+                padding-top: 40px;
+                font-size: 20px;
+            }
         }
 
         .nameBadge {
@@ -181,7 +186,6 @@
 
         &:hover {
             color: $primary;
-
         }
     }
 }

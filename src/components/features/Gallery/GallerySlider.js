@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './GallerySlider.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,21 +11,52 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
-import { getAll, getProductByImage } from '../../../redux/productsRedux';
+import { getAll } from '../../../redux/productsRedux';
 import Button from '../../common/Button/Button';
 import clsx from 'clsx';
+import Swipeable from '../../common/Swipeable/Swipeable';
 import { useTranslation } from 'react-i18next';
 
 const GallerySlider = () => {
   const { t } = useTranslation();
 
   const topSellers = useSelector(getAll);
-  const imageToFind = './images/furniture/chair/5.jpg';
 
-  const selectedProduct = useSelector(state => getProductByImage(state, imageToFind));
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSelectedProduct(topSellers[activeSlide]);
+    }, 0);
+  }, [activeSlide, topSellers]);
 
   if (!selectedProduct) {
     return null;
+  }
+
+  const onGalleryLeftSwipe = () => {
+    if (activeSlide > 0) {
+      setActiveSlide(activeSlide - 1);
+      setSelectedProduct(topSellers[activeSlide - 1]);
+    }
+  };
+
+  const onGalleryRightSwipe = () => {
+    if (activeSlide < topSellers.length - 1) {
+      setActiveSlide(activeSlide + 1);
+      setSelectedProduct(topSellers[activeSlide + 1]);
+    }
+  };
+
+  let numSlidesToDisplay;
+
+  if (window.innerWidth < 768) {
+    numSlidesToDisplay = 2;
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    numSlidesToDisplay = 4;
+  } else {
+    numSlidesToDisplay = 6;
   }
 
   return (
@@ -49,7 +80,7 @@ const GallerySlider = () => {
       <div
         className={styles.photo}
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}images/furniture/chair/5.jpg)`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}${selectedProduct.image})`,
           backgroundSize: 'cover',
         }}
       >
@@ -79,9 +110,13 @@ const GallerySlider = () => {
         </div>
         <div className={styles.badge}>
           <div className={styles.price}>
-            <h6 className={styles.newPrice}>$ {selectedProduct.price}</h6>
-            {selectedProduct.oldPrice && (
-              <h6 className={styles.oldPrice}>$ {selectedProduct.oldPrice}</h6>
+            {selectedProduct.oldPrice ? (
+              <>
+                <h6 className={styles.newPrice}>$ {selectedProduct.price}</h6>
+                <h6 className={styles.oldPrice}>$ {selectedProduct.oldPrice}</h6>
+              </>
+            ) : (
+              <h6 className={styles.centeredPrice}>$ {selectedProduct.price}</h6>
             )}
           </div>
           <div className={styles.nameBadge}>
@@ -100,27 +135,34 @@ const GallerySlider = () => {
           </div>
         </div>
       </div>
-      <div className={'row no-gutters ' + styles.sliderList}>
-        <div className={'col-auto ' + styles.sliderArrow}>
-          {' '}
-          <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+      <Swipeable onLeftSwipe={onGalleryLeftSwipe} onRightSwipe={onGalleryRightSwipe}>
+        <div className={'row no-gutters ' + styles.sliderList}>
+          <div className={'col-auto ' + styles.sliderArrow}>
+            <FontAwesomeIcon
+              icon={faChevronLeft}
+              onClick={onGalleryLeftSwipe}
+            ></FontAwesomeIcon>
+          </div>
+          {topSellers
+            .slice(activeSlide, activeSlide + numSlidesToDisplay)
+            .map((item, index) => (
+              <div
+                className={'col ' + styles.product}
+                key={index}
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL}${item.image})`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+            ))}
+          <div className={'col-auto ' + styles.sliderArrow}>
+            <FontAwesomeIcon
+              icon={faChevronRight}
+              onClick={onGalleryRightSwipe}
+            ></FontAwesomeIcon>
+          </div>
         </div>
-        {topSellers.slice(0, 6).map(item => (
-          <div
-            className={'col ' + styles.product}
-            key={item.id}
-            style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL
-              }/images/furniture/chair/${item.id.substr(item.id.length - 1)}.jpg)`,
-              backgroundSize: 'cover',
-            }}
-          ></div>
-        ))}
-        <div className={'col-auto ' + styles.sliderArrow}>
-          <FontAwesomeIcon icon={faChevronRight}></FontAwesomeIcon>
-        </div>
-      </div>
+      </Swipeable>
     </div>
   );
 };

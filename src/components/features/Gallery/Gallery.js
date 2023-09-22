@@ -20,7 +20,7 @@ const Gallery = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className='row'>
-          <div className='col-sm-6'>
+          <div className='col-12 col-md-12 col-lg-6'>
             <div className='row no-gutters'>
               <div className={'col ' + styles.heading}>
                 <h3>{t('gallery.title')}</h3>

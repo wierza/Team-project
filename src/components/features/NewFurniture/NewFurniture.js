@@ -191,7 +191,7 @@ class NewFurniture extends React.Component {
 
 NewFurniture.propTypes = {
   children: PropTypes.node,
-  viewport: PropTypes.string,
+  viewport: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   mode: PropTypes.string,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
