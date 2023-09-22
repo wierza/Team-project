@@ -89,7 +89,8 @@ const Promoted = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [intervalId, startAnimation]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startAnimation]);
 
   useEffect(() => {
     productChange(animationCounter.num);
