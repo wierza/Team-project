@@ -1,0 +1,21 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: $base-padding 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem 5rem;
+}
+
+p {
+  margin: 3rem 0;
+  text-align: center;
+  font-weight: 400;
+  color: $text-color;
+  font-size: 30px;
+  font-style: italic ;
+}
