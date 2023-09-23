@@ -19,7 +19,7 @@ import Swipeable from '../../common/Swipeable/Swipeable';
 import imagesByCategory from './GallerySliderFoto';
 import styles from './GallerySlider.module.scss';
 
-const ANIMATION_DURATION = 750;
+const ANIMATION_DURATION = 500;
 const MOBILE_SCREEN_WIDTH = 768;
 const TABLET_SCREEN_WIDTH = 1024;
 
@@ -30,12 +30,8 @@ const GallerySlider = () => {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [activeCategory, setActiveCategory] = useState('top');
+  const [activeCategory, setActiveCategory] = useState('featured');
 
-  // eslint-disable-next-line no-unused-vars
-  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
-
-  // eslint-disable-next-line no-unused-vars
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const selectedImages = imagesByCategory[activeCategory];
@@ -67,13 +63,11 @@ const GallerySlider = () => {
     if (e) {
       e.preventDefault();
     }
-    setSelectedThumbnailIndex(0);
     setIsVisible(false);
 
     setTimeout(() => {
       setActiveCategory(category);
       setSelectedProduct(null);
-      setSelectedThumbnailIndex(0);
       setActiveSlide(0);
       setIsVisible(true);
     }, ANIMATION_DURATION);
@@ -103,15 +97,13 @@ const GallerySlider = () => {
   };
 
   const handlePrevThumbnail = () => {
-    setSelectedThumbnailIndex(prevIndex =>
-      prevIndex === 0 ? selectedImages.length - 1 : prevIndex - 1
-    );
+    const newIndex = activeSlide === 0 ? selectedImages.length - 1 : activeSlide - 1;
+    setActiveSlide(newIndex);
   };
 
   const handleNextThumbnail = () => {
-    setSelectedThumbnailIndex(prevIndex =>
-      prevIndex === selectedImages.length - 1 ? 0 : prevIndex + 1
-    );
+    const newIndex = activeSlide === selectedImages.length - 1 ? 0 : activeSlide + 1;
+    setActiveSlide(newIndex);
   };
 
   let numSlidesToDisplay;
