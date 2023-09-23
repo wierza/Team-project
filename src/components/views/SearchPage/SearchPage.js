@@ -14,7 +14,7 @@ const SearchPage = () => {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <p>Wyszukiwana fraza: &quot;{searchPhrase}&quot;</p>
+        <p>Searched phrase: &quot;{searchPhrase}&quot;</p>
         <div className={styles.row}>
           {productsToShow.map(item => (
             <div key={item.id} className='col-4'>
