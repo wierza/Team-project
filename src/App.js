@@ -20,7 +20,7 @@ const App = () => (
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
           <Route exact path={'/product/:productId'} component={ProductPage} />
-          <Route exact path={'/search/:searchPhrase'} component={SearchPage} />
+          <Route exact path={'/:searchPhrase'} component={SearchPage} />
         </Switch>
       </MainLayout>
     </BrowserRouter>
